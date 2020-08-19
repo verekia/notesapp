@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import { Magic } from 'magic-sdk'
 import Link from 'next/link'
-import { Button, TextField } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Paper from '@material-ui/core/Paper'
 
 import { useRedirectIn } from '../lib/client/hooks'
 import { HEADER_NONE } from '../constants'
@@ -37,33 +39,35 @@ const IndexPage = ({ isConfirmedLoggedIn }) => {
   }
 
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          NotesApp
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            variant="outlined"
-            size="small"
-            name="email"
-            placeholder="sven@example.com"
-            autoFocus
-          />
-          <Button
-            type="submit"
-            size="large"
-            variant="contained"
-            color="primary"
-            style={{ minWidth: 125 }}
-          >
-            {loading ? <CircularProgress size={24} style={{ color: 'white' }} /> : 'Get Started'}
-          </Button>
-        </form>
-        <Link href="/about">
-          <a>Go to the about page</a>
-        </Link>
-      </Box>
+    <Container maxWidth="sm" style={{ marginTop: 200 }}>
+      <Paper style={{ padding: '10px 30px' }}>
+        <Box my={4}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            NotesApp
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              variant="outlined"
+              size="small"
+              name="email"
+              placeholder="sven@example.com"
+              autoFocus
+            />
+            <Button
+              type="submit"
+              size="large"
+              variant="contained"
+              color="primary"
+              style={{ minWidth: 125 }}
+            >
+              {loading ? <CircularProgress size={24} style={{ color: 'white' }} /> : 'Get Started'}
+            </Button>
+          </form>
+          <Link href="/about">
+            <Button variant="text" color="primary" style={{ marginTop: 30 }}>About NotesApp</Button>
+          </Link>
+        </Box>
+      </Paper>
     </Container>
   )
 }
