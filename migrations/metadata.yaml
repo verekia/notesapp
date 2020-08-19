@@ -1,0 +1,20 @@
+version: 2
+tables:
+- table:
+    schema: public
+    name: note
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: userId
+- table:
+    schema: public
+    name: user
+  array_relationships:
+  - name: notes
+    using:
+      foreign_key_constraint_on:
+        column: userId
+        table:
+          schema: public
+          name: note

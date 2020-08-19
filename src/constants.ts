@@ -1,0 +1,3 @@
+export const HEADER_NONE = 'HEADER_NONE'
+export const HEADER_LOGGED_IN = 'HEADER_LOGGED_IN'
+export const HEADER_LOGGED_OUT = 'HEADER_LOGGED_OUT'
