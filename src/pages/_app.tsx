@@ -69,7 +69,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>PostApp</title>
+        <title>NotesApp</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
