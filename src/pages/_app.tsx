@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 
-import ifs from '@sharyn/util/ifs'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -9,10 +8,9 @@ import nprogress from 'nprogress'
 
 import '../style.css'
 import theme from '../theme'
-import LoggedInHeader from '../components/LoggedInHeader'
-import { HEADER_LOGGED_IN, HEADER_LOGGED_OUT, HEADER_NONE } from '../constants'
-import LoggedOutHeader from '../components/LoggedOutHeader'
+import { HEADER_NONE, HEADER_LOGGED_IN, HEADER_LOGGED_OUT } from '../constants'
 import { useUser } from '../lib/client/hooks'
+import Header from '../components/Header'
 
 nprogress.configure({ showSpinner: false, minimum: 0.2 })
 
@@ -74,16 +72,8 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {ifs(
-          [pageProps.header === HEADER_NONE, () => null],
-          [
-            pageProps.header === HEADER_LOGGED_IN || isConfirmedLoggedIn,
-            () => <LoggedInHeader user={user} />,
-          ],
-          [
-            pageProps.header === HEADER_LOGGED_OUT || isConfirmedLoggedOut,
-            () => <LoggedOutHeader />,
-          ]
+        {pageProps.header !== HEADER_NONE && (
+          <Header loggedInMode={pageProps.header === HEADER_LOGGED_IN || isConfirmedLoggedIn} />
         )}
         <Component
           {...pageProps}
