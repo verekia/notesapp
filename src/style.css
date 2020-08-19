@@ -4,10 +4,10 @@
 }
 
 #nprogress .bar {
-  background: #29d;
+  background: white;
 
   position: fixed;
-  z-index: 1031;
+  z-index: 1200;
   top: 0;
   left: 0;
 
