@@ -7,7 +7,7 @@
     "start-api": "docker-compose up",
     "stop-api": "docker-compose down",
     "local-hasura": "npx hasura console",
-    "migrate": "npx hasura migrate apply && npx hasura metadata apply",
+    "migrate": "npx hasura migrate apply --skip-update-check && npx hasura metadata apply --skip-update-check",
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
