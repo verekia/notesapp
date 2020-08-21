@@ -48,9 +48,15 @@ const Header = (props: HeaderProps) => {
             <LogoIcon className={classes.logoIcon} />
 
             <Typography variant="h6" className={classes.title}>
-              <Link href="/">
-                <a>NotesApp</a>
-              </Link>
+              {loggedInMode ? (
+                <Link href="/dashboard">
+                  <a>Your Notes</a>
+                </Link>
+              ) : (
+                <Link href="/">
+                  <a>NotesApp</a>
+                </Link>
+              )}
             </Typography>
 
             {loggedInMode ? (

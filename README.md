@@ -23,3 +23,9 @@ export const getServerSideProps = async () => {
 ```
 
 With this option, the client and Next server  both call `/api/notes` similarly. For SSR, this causes 1 extra network call, but it creates a complete abstraction of what is the "rendering server" and the API. The API can be written in any language with this option. Better separation of front-end and API. Here, Next SSR + the front-end both act as a consumer of the API as a whole. It's one "client", even though it includes SSR.
+
+## Random notes
+
+If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
+
+https://github.com/vercel/swr/issues/93#issuecomment-552072277

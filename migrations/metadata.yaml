@@ -25,8 +25,11 @@ tables:
     permission:
       columns:
       - content
+      - createdAt
       - id
+      - slug
       - title
+      - updatedAt
       filter:
         userId:
           _eq: X-Hasura-User-Id
