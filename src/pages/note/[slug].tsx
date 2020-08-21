@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { parse } from 'cookie'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -14,28 +13,41 @@ import { GetServerSideProps } from 'next'
 import { mutate } from 'swr'
 import { useRouter } from 'next/router'
 
-import { useAPI } from '../../lib/client/hooks'
-import { findNoteById } from '../../data-access/note'
+import { useGraphQL, graphqlFetcher } from '../../lib/client/hooks'
 import { HEADER_LOGGED_IN, HEADER_LOGGED_OUT } from '../../constants'
+import { getSession } from '../../lib/server/iron'
+import { ssrApiCall } from '../../lib/server/api-call'
+import {
+  GET_NOTE_PUBLIC_QUERY,
+  GET_MY_NOTE_QUERY,
+  GET_MY_NOTES_QUERY,
+  DELETE_MY_NOTE_MUTATION,
+  UPDATE_MY_NOTE_MUTATION,
+} from '../../lib/client/queries'
 
-const NotePage = ({ user, initialNote }) => {
+const NotePage = ({ user, initialData, initialGraphqlOptions }) => {
+  const initialNote = initialData?.note[0]
+
   const [editOpen, setEditOpen] = useState(false)
   const [deleteOpen, setDeleteOpen] = useState(false)
   const [titleEdit, setTitleEdit] = useState(initialNote.title)
   const [contentEdit, setContentEdit] = useState(initialNote.content)
 
   const router = useRouter()
-  const { data: note, mutate: mutateNote } = useAPI(
-    `/api/note?id=${router.query.noteId}`,
+
+  const { data: noteResponse, mutate: mutateNote } = useGraphQL(
+    initialGraphqlOptions.query,
+    initialGraphqlOptions.variables,
     {
       redirectIfLoggedOut: false,
-      initialData: initialNote,
+      initialData: initialData,
       onSuccess: (data) => {
-        setTitleEdit(data.title)
-        setContentEdit(data.content)
+        setTitleEdit(data?.note[0]?.title)
+        setContentEdit(data?.note[0]?.content)
       },
     }
   )
+  const note = noteResponse?.note[0]
 
   const handleClickEditOpen = () => {
     setEditOpen(true)
@@ -49,13 +61,9 @@ const NotePage = ({ user, initialNote }) => {
     e.preventDefault()
     const title = e.target.elements.title.value
     const content = e.target.elements.content.value
-    await fetch('/api/edit-note', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: note.id, title, content }),
-    })
-    mutateNote()
-    mutate('/api/notes', null, true)
+    await graphqlFetcher(UPDATE_MY_NOTE_MUTATION, { id: note.id, title, content })
+    await mutateNote()
+    await mutate(GET_MY_NOTES_QUERY, null, true)
     setEditOpen(false)
   }
 
@@ -68,12 +76,8 @@ const NotePage = ({ user, initialNote }) => {
   }
 
   const handleSubmitDelete = async () => {
-    await fetch('/api/delete-note', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: note.id }),
-    })
-    await mutate('/api/notes', null, true)
+    await graphqlFetcher(DELETE_MY_NOTE_MUTATION, { id: note.id })
+    await mutate(GET_MY_NOTES_QUERY, null, true)
     router.push('/dashboard')
   }
 
@@ -93,7 +97,11 @@ const NotePage = ({ user, initialNote }) => {
           <Button variant="outlined" color="primary" onClick={handleClickDeleteOpen}>
             Delete
           </Button>
-          <Dialog open={editOpen} aria-labelledby="form-dialog-title">
+          <Dialog
+            open={editOpen}
+            aria-labelledby="form-dialog-title"
+            onBackdropClick={handleEditClose}
+          >
             <form onSubmit={handleSubmitEdit}>
               <DialogTitle id="form-dialog-title">Edit note</DialogTitle>
               <DialogContent>
@@ -126,7 +134,12 @@ const NotePage = ({ user, initialNote }) => {
               </DialogActions>
             </form>
           </Dialog>
-          <Dialog open={deleteOpen} onClose={handleDeleteClose} aria-labelledby="form-dialog-title">
+          <Dialog
+            open={deleteOpen}
+            onClose={handleDeleteClose}
+            onBackdropClick={handleDeleteClose}
+            aria-labelledby="form-dialog-title"
+          >
             <DialogTitle id="form-dialog-title">Delete note</DialogTitle>
             <DialogActions>
               <Button onClick={handleDeleteClose} color="primary">
@@ -150,9 +163,22 @@ const NotePage = ({ user, initialNote }) => {
 // This page is hybrid, we show to right header depending on whether the user is
 // logged in or not. We also don't redirect in the client-side hooks.
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { token } = parse(req.headers.cookie ?? '')
-  const note = await findNoteById(params.noteId as string)
-  return { props: { initialNote: note, header: token ? HEADER_LOGGED_IN : HEADER_LOGGED_OUT } }
+  const userId = (await getSession(req))?.userId ?? null
+
+  const graphqlOptions = {
+    query: userId ? GET_MY_NOTE_QUERY : GET_NOTE_PUBLIC_QUERY,
+    variables: { slug: params.slug },
+  }
+
+  const data = await ssrApiCall(req, graphqlOptions)
+
+  return {
+    props: {
+      initialGraphqlOptions: graphqlOptions,
+      initialData: data,
+      initialHeader: userId ? HEADER_LOGGED_IN : HEADER_LOGGED_OUT,
+    },
+  }
 }
 
 export default NotePage

@@ -35,7 +35,7 @@ const IndexPage = ({ isConfirmedLoggedIn }) => {
     } catch (error) {
       console.error('An unexpected error happened occurred:', error)
     }
-    setLoading(false)
+    setTimeout(() => setLoading(false), 10000)
   }
 
   return (
@@ -64,7 +64,9 @@ const IndexPage = ({ isConfirmedLoggedIn }) => {
             </Button>
           </form>
           <Link href="/about">
-            <Button variant="text" color="primary" style={{ marginTop: 30 }}>About NotesApp</Button>
+            <Button variant="text" color="primary" style={{ marginTop: 30 }}>
+              About NotesApp
+            </Button>
           </Link>
         </Box>
       </Paper>
@@ -72,6 +74,6 @@ const IndexPage = ({ isConfirmedLoggedIn }) => {
   )
 }
 
-export const getStaticProps = () => ({ props: { header: HEADER_NONE } })
+export const getStaticProps = () => ({ props: { initialHeader: HEADER_NONE } })
 
 export default IndexPage

@@ -72,8 +72,10 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {pageProps.header !== HEADER_NONE && (
-          <Header loggedInMode={pageProps.header === HEADER_LOGGED_IN || isConfirmedLoggedIn} />
+        {pageProps.initialHeader !== HEADER_NONE && (
+          <Header
+            loggedInMode={pageProps.initialHeader === HEADER_LOGGED_IN || isConfirmedLoggedIn}
+          />
         )}
         <Component
           {...pageProps}

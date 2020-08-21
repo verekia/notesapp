@@ -7,7 +7,7 @@
     "start-api": "docker-compose up",
     "stop-api": "docker-compose down",
     "local-hasura": "npx hasura console",
-    "migrate": "npx hasura migrate apply && npx hasura metadata apply",
+    "migrate": "npx hasura migrate apply --skip-update-check && npx hasura metadata apply --skip-update-check",
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
@@ -18,6 +18,8 @@
     "@prisma/client": "^2.4.1",
     "@sharyn/nanoid": "^1.0.1",
     "@sharyn/util": "^3.13.1",
+    "graphql": "^15.3.0",
+    "graphql-request": "^3.0.0",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.20",
     "magic-sdk": "^2.4.7",

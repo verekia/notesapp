@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import id from '@sharyn/nanoid'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -9,13 +10,20 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import Paper from '@material-ui/core/Paper'
 import Link from 'next/link'
 
-import { useAPI, useRedirectOut } from '../lib/client/hooks'
+import { useRedirectOut, useGraphQL, graphqlFetcher } from '../lib/client/hooks'
 import { HEADER_LOGGED_IN } from '../constants'
+import { GET_MY_NOTES_QUERY, CREATE_NOTE_MUTATION } from '../lib/client/queries'
+import { CircularProgress } from '@material-ui/core'
 
 const DashboardPage = ({ isConfirmedLoggedOut }) => {
-  const { data: notes, mutate: mutateNotes } = useAPI('/api/notes')
+  const { data: notesResponse, mutate: mutateNotes } = useGraphQL(GET_MY_NOTES_QUERY)
+  const [isCreating, setIsCreating] = useState(false)
+
+  const notes = notesResponse?.myNotes
+
   useRedirectOut(isConfirmedLoggedOut)
 
   const [open, setOpen] = useState(false)
@@ -25,15 +33,13 @@ const DashboardPage = ({ isConfirmedLoggedOut }) => {
 
   const handleSubmitCreate = async (e) => {
     e.preventDefault()
+    setIsCreating(true)
     const title = e.target.elements.title.value
     const content = e.target.elements.content.value
-    await fetch('/api/create-note', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, content }),
-    })
+    await graphqlFetcher(CREATE_NOTE_MUTATION, { title, content, slug: id(8) })
+    await mutateNotes()
     setOpen(false)
-    mutateNotes()
+    setIsCreating(false)
   }
 
   return (
@@ -42,19 +48,19 @@ const DashboardPage = ({ isConfirmedLoggedOut }) => {
         <Typography variant="h4" component="h1" gutterBottom>
           Your notes
         </Typography>
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          Create note
+        </Button>
       </Box>
       {notes &&
         notes.map((n) => (
-          <Box key={n.id}>
-            <Link href="/note/[noteId]" as={`/note/${n.id}`}>
+          <Paper key={n.id} style={{ padding: 30, marginBottom: 30 }}>
+            <Link href="/note/[slug]" as={`/note/${n.slug}`}>
               <a>{n.title}</a>
             </Link>{' '}
             - {n.content}
-          </Box>
+          </Paper>
         ))}
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Create note
-      </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <form onSubmit={handleSubmitCreate}>
           <DialogTitle id="form-dialog-title">New note</DialogTitle>
@@ -67,7 +73,7 @@ const DashboardPage = ({ isConfirmedLoggedOut }) => {
               Cancel
             </Button>
             <Button type="submit" color="primary">
-              Create
+              {isCreating ? <CircularProgress size={24} /> : 'Create'}
             </Button>
           </DialogActions>
         </form>
@@ -76,8 +82,6 @@ const DashboardPage = ({ isConfirmedLoggedOut }) => {
   )
 }
 
-export const getStaticProps = () => ({ props: { header: HEADER_LOGGED_IN }})
-
-// We don't use getServerSideProps because we don't need SEO here
+export const getStaticProps = () => ({ props: { initialHeader: HEADER_LOGGED_IN } })
 
 export default DashboardPage
