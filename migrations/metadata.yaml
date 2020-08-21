@@ -7,6 +7,66 @@ tables:
   - name: user
     using:
       foreign_key_constraint_on: userId
+  insert_permissions:
+  - role: user
+    permission:
+      check:
+        userId:
+          _eq: X-Hasura-User-Id
+      set:
+        userId: x-hasura-User-Id
+      columns:
+      - content
+      - slug
+      - title
+      backend_only: false
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - content
+      - id
+      - title
+      filter:
+        userId:
+          _eq: X-Hasura-User-Id
+      limit: 20
+  update_permissions:
+  - role: user
+    permission:
+      columns:
+      - content
+      - title
+      filter:
+        userId:
+          _eq: X-Hasura-User-Id
+      check: null
+  delete_permissions:
+  - role: user
+    permission:
+      filter:
+        userId:
+          _eq: X-Hasura-User-Id
+- table:
+    schema: public
+    name: note_public
+  select_permissions:
+  - role: public
+    permission:
+      columns:
+      - content
+      - slug
+      - title
+      filter: {}
+      limit: 1
+  - role: user
+    permission:
+      columns:
+      - content
+      - slug
+      - title
+      filter: {}
+      limit: 1
 - table:
     schema: public
     name: user
@@ -18,3 +78,22 @@ tables:
         table:
           schema: public
           name: note
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - email
+      - id
+      - name
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+  update_permissions:
+  - role: user
+    permission:
+      columns:
+      - name
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: {}
