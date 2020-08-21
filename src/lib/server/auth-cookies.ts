@@ -2,7 +2,7 @@ import { serialize, parse } from 'cookie'
 import { NextApiResponse as Res } from 'next'
 import { IncomingMessage as Req } from 'http'
 
-const TOKEN_NAME = 'token'
+const TOKEN_NAME = 'notesapptoken'
 const MAX_AGE = 60 * 60 * 8 // 8 hours
 
 const parseCookies = (req: Req) => parse(req.headers?.cookie ?? '')

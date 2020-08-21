@@ -15,7 +15,6 @@ import { useRouter } from 'next/router'
 
 import { useGraphQL, graphqlFetcher } from '../../lib/client/hooks'
 import { HEADER_LOGGED_IN, HEADER_LOGGED_OUT } from '../../constants'
-import { getSession } from '../../lib/server/iron'
 import { ssrApiCall } from '../../lib/server/api-call'
 import {
   GET_NOTE_PUBLIC_QUERY,
@@ -24,6 +23,7 @@ import {
   DELETE_MY_NOTE_MUTATION,
   UPDATE_MY_NOTE_MUTATION,
 } from '../../lib/client/queries'
+import { getTokenCookie } from '../../lib/server/auth-cookies'
 
 const NotePage = ({ user, initialData, initialGraphqlOptions }) => {
   const initialNote = initialData?.note[0]
@@ -163,20 +163,20 @@ const NotePage = ({ user, initialData, initialGraphqlOptions }) => {
 // This page is hybrid, we show to right header depending on whether the user is
 // logged in or not. We also don't redirect in the client-side hooks.
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const userId = (await getSession(req))?.userId ?? null
+  const token = getTokenCookie(req)
 
   const graphqlOptions = {
-    query: userId ? GET_MY_NOTE_QUERY : GET_NOTE_PUBLIC_QUERY,
+    query: token ? GET_MY_NOTE_QUERY : GET_NOTE_PUBLIC_QUERY,
     variables: { slug: params.slug },
   }
 
-  const data = await ssrApiCall(req, graphqlOptions)
+  const { data } = await ssrApiCall(graphqlOptions, token)
 
   return {
     props: {
       initialGraphqlOptions: graphqlOptions,
       initialData: data,
-      initialHeader: userId ? HEADER_LOGGED_IN : HEADER_LOGGED_OUT,
+      initialHeader: token ? HEADER_LOGGED_IN : HEADER_LOGGED_OUT,
     },
   }
 }
