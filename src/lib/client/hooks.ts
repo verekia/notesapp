@@ -29,34 +29,6 @@ interface Options extends ConfigInterface {
   redirectIfLoggedIn?: boolean
 }
 
-export const useAPI = (
-  key: any,
-  options: Options = { redirectIfLoggedOut: false, redirectIfLoggedIn: false }
-) => {
-  const router = useRouter()
-  const [isLoggedIn, setIsLoggedIn] = useState()
-  const { redirectIfLoggedOut, redirectIfLoggedIn, ..._swrConfig } = options
-  const swrConfig: ConfigInterface = { ..._swrConfig }
-
-  const { data, error, ...rest } = useSWR(key, fetcher, swrConfig)
-
-  // useEffect(() => {
-  //   if (redirectIfLoggedOut && error?.status === 401) {
-  //     router.replace('/')
-  //   }
-  //   if (redirectIfLoggedIn && error?.status !== 401) {
-  //     router.replace('/dashboard')
-  //   }
-  // }, [error?.status])
-
-  return { isLoading: !error && !data, isError: !!error, data: data, error: error, ...rest }
-}
-
-// export const useUser = (initialUser, options?: Options) => {
-//   const { data, error, ...rest } = useAPI(`/api/user`, options)
-//   return { user: data ?? initialUser, isLoading: !error && !data, isError: !!error, ...rest }
-// }
-
 export const useUser = (initialUser, options?: Options) => {
   const { data: response, error, ...rest } = useGraphQL(GET_ME_QUERY, null, options)
   const data = response?.me[0]

@@ -1,19 +1,16 @@
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
 
-import { getSession } from '../../lib/server/iron'
-import { setTokenCookie, removeTokenCookie } from '../../lib/server/auth-cookies'
-import { encryptSession } from '../../lib/server/iron'
+import { setTokenCookie, removeTokenCookie, getTokenCookie } from '../../lib/server/auth-cookies'
 import magic from '../../lib/server/magic'
 import { GraphQLClient } from 'graphql-request'
 import { GET_USER_QUERY, CREATE_USER_MUTATION } from '../../lib/client/queries'
-
-// This endpoint is only used by SWR
+import { createJWT, decodeJWT } from '../../lib/server/jwt'
 
 export default async (req: Req, res: Res) => {
   const { slug } = req.query
 
   const client = new GraphQLClient(`${process.env.HASURA_GRAPHQL_ENDPOINT}/v1/graphql`, {
-    headers: { 'X-Hasura-Admin-Secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET },
+    headers: { Authorization: `Bearer ${process.env.AUTH_SERVICE_JWT}` },
   })
 
   switch (slug) {
@@ -29,8 +26,7 @@ export default async (req: Req, res: Res) => {
           })
           foundUser = createdUser
         }
-        const session = { ...metadata, userId: foundUser?.id }
-        const authToken = await encryptSession(session)
+        const authToken = createJWT({ ...metadata, userId: foundUser.id })
         setTokenCookie(req, res, authToken)
         res.status(200).end()
       } catch (error) {
@@ -38,8 +34,11 @@ export default async (req: Req, res: Res) => {
       }
       break
     case 'logout':
-      const issuer = (await getSession(req))?.issuer
-      issuer && (await magic.users.logoutByIssuer(issuer))
+      const token = getTokenCookie(req)
+      if (token) {
+        const { issuer } = decodeJWT(token)
+        issuer && (await magic.users.logoutByIssuer(issuer))
+      }
       removeTokenCookie(res)
       res.writeHead(302, { Location: '/' }).end()
       break
