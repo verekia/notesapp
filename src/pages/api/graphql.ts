@@ -74,7 +74,11 @@ const resolvers = {
 // @ts-ignore
 export const schema = makeExecutableSchema({ typeDefs, resolvers })
 
-export const config: Config = { introspection: true }
+export const config: Config = {
+  introspection: true,
+  // @ts-ignore
+  api: { bodyParser: false },
+}
 
 export default new ApolloServer({
   schema,
