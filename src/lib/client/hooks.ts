@@ -5,8 +5,7 @@ import { useRouter } from 'next/router'
 import { GraphQLClient } from 'graphql-request'
 import { GET_ME_QUERY } from './queries'
 
-// Remove those options and use directly request if it works
-const client = new GraphQLClient('/api/client-adapter', { credentials: 'include', mode: 'cors' })
+const client = new GraphQLClient('/api/graphql-client-endpoint')
 
 // If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
 // https://github.com/vercel/swr/issues/93#issuecomment-552072277

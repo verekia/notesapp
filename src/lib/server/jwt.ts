@@ -11,7 +11,12 @@ export interface JWTPayload {
   }
 }
 
-export const createJWT = (payload: { userId: string }) => {
+export const createJWT = (payload: {
+  issuer: string
+  publicAddress: string
+  email: string
+  userId: string
+}) => {
   const { userId, ...rest } = payload
 
   return jwt.sign(
@@ -24,7 +29,7 @@ export const createJWT = (payload: { userId: string }) => {
       },
     },
     JWT_SECRET,
-    { expiresIn: '8 hours' } // Same as cookies
+    { expiresIn: '7 days' } // Same as cookies
   )
 }
 

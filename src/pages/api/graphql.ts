@@ -23,6 +23,7 @@ const typeDefs = gql`
     randomNumber: Int!
   }
   type Mutation {
+    refreshToken: Boolean
     login(didToken: String!): Boolean
     logout: Boolean
     createNote(title: String!, content: String): String!
@@ -34,6 +35,21 @@ const resolvers = {
     randomNumber: () => Math.round(Math.random() * 10),
   },
   Mutation: {
+    async refreshToken(_, __, { jwtPayload, res, role, userId }) {
+      if (role === 'public' || !userId || !jwtPayload) {
+        return false
+      }
+      setTokenCookie(
+        res,
+        createJWT({
+          issuer: jwtPayload.issuer,
+          publicAddress: jwtPayload.publicAddress,
+          email: jwtPayload.email,
+          userId,
+        })
+      )
+      return true
+    },
     async login(_, { didToken }, { res }) {
       const metadata = await magic.users.getMetadataByToken(didToken)
       const { user: users } = await client.request(GET_USER_QUERY, { email: metadata.email })
