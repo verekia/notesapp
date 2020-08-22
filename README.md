@@ -28,6 +28,10 @@ With this option, the client and Next server  both call `/api/notes` similarly. 
 
 npx hasura migrate apply --skip-update-check --endpoint XXXX.com --admin-secret XXX && npx hasura metadata apply --skip-update-check --endpoint XXXX.com --admin-secret XXX
 
+On Vercel, migrations have to be done after deployments are complete, not during build, because Hasura will introspect the remote schema that's not deployed yet (or a wrong previous one).
+
+For now I run them by hand after pushing to `dev` or `master`. Maybe a Github Action can streamline the process.
+
 ## Generate JWT for auth server
 
 require('jsonwebtoken').sign({'https://hasura.io/jwt/claims':{'x-hasura-allowed-roles':['auth_server'],'x-hasura-default-role': 'auth_server'}}, 'secret-key')
