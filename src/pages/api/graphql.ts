@@ -79,14 +79,14 @@ export default new ApolloServer({
   schema,
   context: (ctx) => {
     console.log('API authorization check')
-    console.log(ctx.req.headers['custom-api-hasura-secret'])
-    console.log(process.env.CUSTOM_API_HASURA_SECRET)
     if (
       process.env.STAGE !== 'dev' &&
       ctx.req.headers['custom-api-hasura-secret'] !== process.env.CUSTOM_API_HASURA_SECRET
     ) {
+      console.error('Invalid custom-api-hasura-secret header')
       throw new ForbiddenError('Invalid custom-api-hasura-secret header')
     }
+    console.log('API authorization check OK')
     let jwtPayload = ctx.req.headers.authorization
       ? decodeJWT(ctx.req.headers.authorization.split(' ')[1])
       : null
