@@ -76,6 +76,7 @@ export const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 export const config: Config = {
   introspection: true,
+  playground: true,
   // @ts-ignore
   api: { bodyParser: false },
 }
@@ -83,12 +84,13 @@ export const config: Config = {
 export default new ApolloServer({
   schema,
   context: (ctx) => {
-    if (
-      process.env.STAGE !== 'dev' &&
-      ctx.req.headers['custom-api-hasura-secret'] !== process.env.CUSTOM_API_HASURA_SECRET
-    ) {
-      throw new ForbiddenError('Invalid custom-api-hasura-secret header')
-    }
+    console.log(ctx.req)
+    // if (
+    //   process.env.STAGE !== 'dev' &&
+    //   ctx.req.headers['custom-api-hasura-secret'] !== process.env.CUSTOM_API_HASURA_SECRET
+    // ) {
+    //   throw new ForbiddenError('Invalid custom-api-hasura-secret header')
+    // }
     let jwtPayload = ctx.req.headers.authorization
       ? decodeJWT(ctx.req.headers.authorization.split(' ')[1])
       : null
