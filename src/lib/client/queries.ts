@@ -40,10 +40,16 @@ export const GET_NOTE_PUBLIC_QUERY = gql`
 `
 
 export const CREATE_NOTE_MUTATION = gql`
-  mutation($content: String, $slug: String!, $title: String!) {
-    insert_note_one(object: { content: $content, slug: $slug, title: $title }) {
+  mutation($content: String, $slug: String!, $title: String!, $userId: uuid!) {
+    insert_note_one(object: { content: $content, slug: $slug, title: $title, userId: $userId }) {
       id
     }
+  }
+`
+
+export const CREATE_NOTE_WITH_SLUG_MUTATION = gql`
+  mutation($content: String, $title: String!) {
+    createNote(content: $content, title: $title)
   }
 `
 
@@ -79,5 +85,17 @@ export const CREATE_USER_MUTATION = gql`
       id
       email
     }
+  }
+`
+
+export const LOGIN_MUTATION = gql`
+  mutation($didToken: String!) {
+    login(didToken: $didToken)
+  }
+`
+
+export const LOGOUT_MUTATION = gql`
+  mutation {
+    logout
   }
 `

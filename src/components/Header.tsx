@@ -9,6 +9,9 @@ import Slide from '@material-ui/core/Slide'
 import Link from 'next/link'
 import LogoIcon from '@material-ui/icons/ImportContacts'
 import Button from '@material-ui/core/Button'
+import { graphqlFetcher } from '../lib/client/hooks'
+import { LOGOUT_MUTATION, GET_ME_QUERY } from '../lib/client/queries'
+import { mutate } from 'swr'
 
 export interface HeaderProps {
   loggedInMode: boolean
@@ -40,6 +43,13 @@ const Header = (props: HeaderProps) => {
   const { loggedInMode } = props
   const classes = useStyles()
 
+  const handleLogout = async () => {
+    const res = await graphqlFetcher(LOGOUT_MUTATION)
+    if (res.logout) {
+      mutate(GET_ME_QUERY, { me: [] })
+    }
+  }
+
   return (
     <>
       <HideOnScroll {...props}>
@@ -60,7 +70,7 @@ const Header = (props: HeaderProps) => {
             </Typography>
 
             {loggedInMode ? (
-              <Button color="inherit" href="/api/logout">
+              <Button color="inherit" onClick={handleLogout}>
                 Log Out
               </Button>
             ) : (

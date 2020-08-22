@@ -7,7 +7,7 @@ const MAX_AGE = 60 * 60 * 8 // 8 hours
 
 const parseCookies = (req: Req) => parse(req.headers?.cookie ?? '')
 
-export const setTokenCookie = (req: Req, res: Res, token: string) =>
+export const setTokenCookie = (res: Res, token: string) =>
   res.setHeader(
     'Set-Cookie',
     serialize(TOKEN_NAME, token, {

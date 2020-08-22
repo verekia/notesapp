@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, useEffect, useRef } from 'react'
 
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Container from '@material-ui/core/Container'
@@ -9,14 +9,20 @@ import Link from 'next/link'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper'
-
-import { useRedirectIn } from '../lib/client/hooks'
-import { HEADER_NONE } from '../constants'
 import { mutate } from 'swr'
+
+import { useRedirectIn, graphqlFetcher } from '../lib/client/hooks'
+import { HEADER_NONE } from '../constants'
+import { LOGIN_MUTATION, GET_ME_QUERY } from '../lib/client/queries'
 
 const IndexPage = ({ isConfirmedLoggedIn }) => {
   const [loading, setLoading] = useState(false)
   useRedirectIn(isConfirmedLoggedIn)
+  const loadingTimer = useRef(null)
+
+  useEffect(() => () => {
+    clearInterval(loadingTimer.current)
+  }, [])
 
   const handleSubmit = async (e: FormEvent) => {
     setLoading(true)
@@ -26,16 +32,14 @@ const IndexPage = ({ isConfirmedLoggedIn }) => {
     try {
       const magic = new Magic(process.env.MAGIC_PUBLIC)
       const didToken = await magic.auth.loginWithMagicLink({ email: emailEl.value })
-      const res = await fetch('/api/login', { method: 'POST', body: didToken })
-      if (res.status === 200) {
-        await mutate('/api/user')
-      } else {
-        throw new Error(await res.text())
+      const res = await graphqlFetcher(LOGIN_MUTATION, { didToken })
+      if (res.login) {
+        await mutate(GET_ME_QUERY, null, true)
       }
     } catch (error) {
       console.error('An unexpected error happened occurred:', error)
     }
-    setTimeout(() => setLoading(false), 10000)
+    loadingTimer.current = setTimeout(() => setLoading(false), 10000)
   }
 
   return (
