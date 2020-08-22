@@ -70,6 +70,7 @@ const resolvers = {
   },
 }
 
+// @ts-ignore
 export const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 export const config = { api: { bodyParser: false } }
