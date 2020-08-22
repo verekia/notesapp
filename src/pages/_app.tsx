@@ -5,12 +5,14 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { useRouter } from 'next/router'
 import nprogress from 'nprogress'
+import ms from 'ms'
 
 import '../style.css'
 import theme from '../theme'
-import { HEADER_NONE, HEADER_LOGGED_IN, HEADER_LOGGED_OUT } from '../constants'
-import { useUser } from '../lib/client/hooks'
+import { HEADER_NONE, HEADER_LOGGED_IN } from '../constants'
+import { useUser, graphqlFetcher } from '../lib/client/hooks'
 import Header from '../components/Header'
+import { REFRESH_TOKEN_MUTATION } from '../lib/client/queries'
 
 nprogress.configure({ showSpinner: false, minimum: 0.2 })
 
@@ -41,6 +43,15 @@ const App = ({ Component, pageProps }) => {
 
   const isConfirmedLoggedOut = !user && !isLoading
   const isConfirmedLoggedIn = user && !isLoading
+
+  useEffect(() => {
+    const firstRefreshTimer = setTimeout(() => graphqlFetcher(REFRESH_TOKEN_MUTATION), ms('1 min'))
+    const refreshInterval = setInterval(() => graphqlFetcher(REFRESH_TOKEN_MUTATION), ms('30 min'))
+    return () => {
+      clearTimeout(firstRefreshTimer)
+      clearInterval(refreshInterval)
+    }
+  }, [])
 
   useEffect(() => {
     const startProgress = () => startProgressBar()

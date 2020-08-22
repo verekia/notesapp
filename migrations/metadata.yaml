@@ -81,22 +81,7 @@ tables:
         table:
           schema: public
           name: note
-  insert_permissions:
-  - role: auth_server
-    permission:
-      check: {}
-      columns:
-      - email
-      backend_only: false
   select_permissions:
-  - role: auth_server
-    permission:
-      columns:
-      - email
-      - id
-      - name
-      filter: {}
-      limit: 1
   - role: user
     permission:
       columns:
