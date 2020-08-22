@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import useSWR, { ConfigInterface } from 'swr'
 import { useRouter } from 'next/router'
-import { request } from 'graphql-request'
+import { GraphQLClient } from 'graphql-request'
 import { GET_ME_QUERY } from './queries'
+
+// Remove those options and use directly request if it works
+const client = new GraphQLClient('/api/client-adapter', { credentials: 'include', mode: 'cors' })
 
 // If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
 // https://github.com/vercel/swr/issues/93#issuecomment-552072277
-export const graphqlFetcher = (query, vars) => request('/api/client-adapter', query, vars)
+export const graphqlFetcher = (query: string, vars?: Object) => client.request(query, vars)
 
 export const useGraphQL = (query: string, vars?: Object, config?: Object) =>
-  useSWR([query, ...(vars ? [vars] : [])], graphqlFetcher, config)
+  vars ? useSWR([query, vars], graphqlFetcher, config) : useSWR(query, graphqlFetcher, config)
 
 export const fetcher = async (...args: any[]) => {
   // @ts-ignore

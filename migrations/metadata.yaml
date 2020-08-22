@@ -115,3 +115,12 @@ tables:
         id:
           _eq: X-Hasura-User-Id
       check: {}
+remote_schemas:
+- name: Custom-API
+  definition:
+    url_from_env: CUSTOM_API_ENDPOINT
+    timeout_seconds: 60
+    headers:
+    - name: custom-api-hasura-secret
+      value_from_env: CUSTOM_API_HASURA_SECRET
+    forward_client_headers: true

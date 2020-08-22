@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import id from '@sharyn/nanoid'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -15,7 +14,7 @@ import Link from 'next/link'
 
 import { useRedirectOut, useGraphQL, graphqlFetcher } from '../lib/client/hooks'
 import { HEADER_LOGGED_IN } from '../constants'
-import { GET_MY_NOTES_QUERY, CREATE_NOTE_MUTATION } from '../lib/client/queries'
+import { GET_MY_NOTES_QUERY, CREATE_NOTE_WITH_SLUG_MUTATION } from '../lib/client/queries'
 import { CircularProgress } from '@material-ui/core'
 
 const DashboardPage = ({ isConfirmedLoggedOut }) => {
@@ -36,7 +35,7 @@ const DashboardPage = ({ isConfirmedLoggedOut }) => {
     setIsCreating(true)
     const title = e.target.elements.title.value
     const content = e.target.elements.content.value
-    await graphqlFetcher(CREATE_NOTE_MUTATION, { title, content, slug: id(8) })
+    await graphqlFetcher(CREATE_NOTE_WITH_SLUG_MUTATION, { title, content })
     await mutateNotes()
     setOpen(false)
     setIsCreating(false)
