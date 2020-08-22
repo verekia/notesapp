@@ -5,11 +5,12 @@ import {
   makeExecutableSchema,
   AuthenticationError,
   ForbiddenError,
+  Config,
 } from 'apollo-server-micro'
 import { GraphQLClient } from 'graphql-request'
 
 import { CREATE_NOTE_MUTATION } from '../../lib/client/queries'
-import { setTokenCookie, removeTokenCookie, getTokenCookie } from '../../lib/server/auth-cookies'
+import { setTokenCookie, removeTokenCookie } from '../../lib/server/auth-cookies'
 import magic from '../../lib/server/magic'
 import { GET_USER_QUERY, CREATE_USER_MUTATION } from '../../lib/client/queries'
 import { createJWT, decodeJWT } from '../../lib/server/jwt'
@@ -73,20 +74,17 @@ const resolvers = {
 // @ts-ignore
 export const schema = makeExecutableSchema({ typeDefs, resolvers })
 
-export const config = { api: { bodyParser: false } }
+export const config: Config = { introspection: true }
 
 export default new ApolloServer({
   schema,
   context: (ctx) => {
-    console.log('API authorization check')
     if (
       process.env.STAGE !== 'dev' &&
       ctx.req.headers['custom-api-hasura-secret'] !== process.env.CUSTOM_API_HASURA_SECRET
     ) {
-      console.error('Invalid custom-api-hasura-secret header')
       throw new ForbiddenError('Invalid custom-api-hasura-secret header')
     }
-    console.log('API authorization check OK')
     let jwtPayload = ctx.req.headers.authorization
       ? decodeJWT(ctx.req.headers.authorization.split(' ')[1])
       : null
