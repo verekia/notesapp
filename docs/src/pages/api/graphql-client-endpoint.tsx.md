@@ -1,4 +1,4 @@
-**[src/pages/api/graphql-client-endpoint.tsx](/src/pages/api/graphql-client-endpoint.tsx#readme)**
+**[src/pages/api/graphql-client-endpoint.tsx](/src/pages/api/graphql-client-endpoint.tsx)**
 
 ```tsx
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
@@ -25,5 +25,5 @@ export default async (req: Req, res: Res) => {
 <!-- nocomment -->
 
 This endpoint is only used to transform client requests (which have their
-JWT token in an HttpOnly cookie) into request with Authorization Bearer tokens.
+JWT token in an HttpOnly cookie) into requests with Authorization Bearer tokens.
 It's basically forwarding the request to the Hasura API.
