@@ -20,11 +20,11 @@ In the following section I explain why I chose those specific tools instead of o
 
 <img src="/docs/img/ts.png" alt="TypeScript Logo" width="100">
 
-I program in JavaScript / TypeScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
+I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
-In terms of flavor, I prefer TypeScipt over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support.
+In terms of flavor, I prefer [TypeScipt](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support.
 
-I would recommend Python to someone learning the fundamentals of programming though.
+I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
 
 ## Front-End Library: React
 
@@ -40,13 +40,13 @@ I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because i
 
 <img src="/docs/img/next.png" alt="Next.js Logo" width="150">
 
-Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use Gatsby, which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
+Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
 ## Deployment platform: Vercel
 
 <img src="/docs/img/vercel.png" alt="Vercel Logo" width="150">
 
-[Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality and well-crafted. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Next projects in particular, it is the platform of choice. For Jamstack projects, Netlify is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go.
+[Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality and well-crafted. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Next projects in particular, it is the platform of choice. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go.
 
 Both Vercel and Netlify offer a ridiculously generous free tier.
 
@@ -54,17 +54,19 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 
 <img src="/docs/img/hasura.svg" alt="Hasura Logo" width="100">
 
-Hasura combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
+[Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
 
 ## GraphQL Server: Apollo Server on Vercel Serverless
 
-Apollo Logo
+<img src="/docs/img/apollo.svg" alt="Apollo Logo" width="100">
 
 I use Apollo Server for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user.
 
 I use Vercel's serverless functions to host the Apollo Server.
 
 ## Authentication method: Passwordless with Magic
+
+<img src="/docs/img/magic.png" alt="Magic Logo" width="80">
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. Magic is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use Auth0 to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
