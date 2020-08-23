@@ -1,4 +1,4 @@
-[graphql-client-endpoint.tsx](/src/pages/api/graphql-client-endpoint.tsx)
+**[/src/pages/api/graphql-client-endpoint.tsx](/src/pages/api/graphql-client-endpoint.tsx)**
 
 ```tsx
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
