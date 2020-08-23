@@ -1,5 +1,77 @@
 # NotesApp
 
+NotesApp is a project to showcase and document my current favorite stack. It is kind of the full-stack equivalent to TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal complete website to serve as a reference and boilerplate for me when starting a new project.
+
+The app itself is very simple. There is a landing page to sign up and log in, an about page, you can write basic notes for yourself, and single notes can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
+
+Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments.
+
+Here is a diagram of the stack being used:
+
+![Diagram](/docs/img/stack.png)
+
+In the following section I explain why I chose those specific tools instead of others.
+
+## Language and ecosystem: TS
+
+TS Logo
+
+JS/TS over other languages for isomorphic code, easy SSR, and programming in only one language. TS vs JS Vs Flow.
+
+## Front-End Framework: React
+
+React Logo
+
+React because of the wide adoption and high satisfaction. Not Angular because low satisfaction. Might try Vue, but it would have major consequences in my stack to switch and I am currently very happy with React.
+
+## Server-Side Rendering: Next.js
+
+Next Logo
+
+Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use Gatsby, which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where Next.js comes in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
+
+## Deployment platform: Vercel
+
+Platform of choice for Next
+
+## GraphQL Engine: Hasura on Heroku
+
+Hasura Logo
+
+Hasura combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
+
+## GraphQL Server: Apollo Server on Vercel Serverless
+
+Apollo Logo
+
+I use Apollo Server for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user.
+
+I use Vercel's serverless functions to host the Apollo Server.
+
+## Authentication method: Passwordless with Magic
+
+I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. Magic is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use Auth0 to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
+
+## Sessions: JWT in cookies
+
+JWTs make it possible to store session data on the client instead of the server (in a Redis for instance), avoiding one database round-trip to validate the identity of the user. They must be stored and transported securely though. The current consensus is to store them in an HttpOnly, Secure, SameSite cookie.
+
+The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a serverless endpoint to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies.
+
+## ORM: Prisma
+
+Prisma Logo
+
+Most operations will be done directly via Hasura's CRUDs, but for specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. ...(even though Prisma says it's technically [not an ORM](https://www.prisma.io/docs/understand-prisma/prisma-in-your-stack/is-prisma-an-orm))
+
+Prisma vs TypeORM, Knex. Sequelize, Bookshelf.
+
+## DatabaseL PostgreSQL
+
+PostgreSQL Logo
+
+I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance, a relational database will ensure your data is consistent more than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
+
 ## 2 options for server-side data fetching
 
 ### Next SSR pages call the DB / controllers / resolvers directly
@@ -41,3 +113,7 @@ require('jsonwebtoken').sign({'https://hasura.io/jwt/claims':{'x-hasura-allowed-
 If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
 
 https://github.com/vercel/swr/issues/93#issuecomment-552072277
+
+## About me
+
+I am Jonathan Verrecchia, aka [@verekia](https://twitter.com/verekia), a French freelance web developer who created JavaScript Stack From Scratch and Initializr, and ex-Yelp developer. I love improving my toolset and helping other developers. I am open to developer relations jobs or remote freelance work. My [resume](https://verekia.com/resume/) is available on my [website](https://verekia.com/).
