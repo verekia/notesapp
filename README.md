@@ -58,7 +58,7 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 
 ## GraphQL Server: Apollo Server on Vercel Serverless
 
-<img src="/docs/img/apollo.svg" alt="Apollo Logo" width="100">
+<img src="/docs/img/apollo.png" alt="Apollo Logo" width="100">
 
 I use Apollo Server for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user.
 
