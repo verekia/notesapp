@@ -1,0 +1,39 @@
+**[docker-compose.yml](/docker-compose.yml)**
+
+```yml
+version: '3'
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - '8432:5432'
+  graphql-engine:
+    image: hasura/graphql-engine:v1.3.0
+    ports:
+      - '8080:8080'
+    depends_on:
+      - 'postgres'
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
+      HASURA_GRAPHQL_DEV_MODE: 'true'
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: public
+      HASURA_GRAPHQL_ADMIN_SECRET: password
+      HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256","key":"h2SMzj65QEUVknKFNXKup8oFf5wUftY9H8QsNkGRihVF4KMHz3"}'
+      CUSTOM_API_ENDPOINT: http://host.docker.internal:3000/api/graphql
+      CUSTOM_API_HASURA_SECRET: 3JuBim8NiRhAq4r8KvLmM29MNTKouoLYJ3sEnMCUdCEV4imZuT
+volumes:
+  db_data:
+
+```
+
+<!-- nocomment -->
+
+`host.docker.internal:3000` is how a Docker container can access `localhost:3000` on the host machine.

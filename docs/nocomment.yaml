@@ -1,0 +1,7 @@
+src:
+  pages:
+    api:
+      'graphql-client-endpoint.tsx':
+    about.tsx:
+    dashboard.tsx:
+docker-compose.yml:
