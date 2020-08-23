@@ -24,29 +24,35 @@ I program in JavaScript / TypeScript over other languages, because I value isomo
 
 In terms of flavor, I prefer TypeScipt over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support.
 
+I would recommend Python to someone learning the fundamentals of programming though.
+
 ## Front-End Library: React
 
 <img src="/docs/img/react.png" alt="React Logo" width="100">
 
-I am very satisfied with using React as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities.
+I am very satisfied with using [React](https://reactjs.org/) as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities.
 
-I know Vue is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though.
+I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though.
 
-Angular might be great for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
+[Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
 ## Server-Side Rendering: Next.js
 
 <img src="/docs/img/next.png" alt="Next.js Logo" width="150">
 
-Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use Gatsby, which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where Next.js comes in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
+Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use Gatsby, which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
 ## Deployment platform: Vercel
 
-Platform of choice for Next
+<img src="/docs/img/vercel.png" alt="Vercel Logo" width="150">
+
+[Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality and well-crafted. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Next projects in particular, it is the platform of choice. For Jamstack projects, Netlify is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go.
+
+Both Vercel and Netlify offer a ridiculously generous free tier.
 
 ## GraphQL Engine: Hasura on Heroku
 
-Hasura Logo
+<img src="/docs/img/hasura.svg" alt="Hasura Logo" width="100">
 
 Hasura combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
 
