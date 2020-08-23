@@ -20,17 +20,23 @@ In the following section I explain why I chose those specific tools instead of o
 
 <img src="/docs/img/ts.png" alt="TypeScript Logo" width="100">
 
-JS/TS over other languages for isomorphic code, easy SSR, and programming in only one language. TS vs JS Vs Flow.
+I program in JavaScript / TypeScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
-## Front-End Framework: React
+In terms of flavor, I prefer TypeScipt over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support.
 
-React Logo
+## Front-End Library: React
 
-React because of the wide adoption and high satisfaction. Not Angular because low satisfaction. Might try Vue, but it would have major consequences in my stack to switch and I am currently very happy with React.
+<img src="/docs/img/react.png" alt="React Logo" width="100">
+
+I am very satisfied with using React as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities.
+
+I know Vue is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though.
+
+Angular might be great for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
 ## Server-Side Rendering: Next.js
 
-Next Logo
+<img src="/docs/img/next.png" alt="Next.js Logo" width="150">
 
 Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use Gatsby, which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where Next.js comes in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
