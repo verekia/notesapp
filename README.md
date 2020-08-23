@@ -16,11 +16,9 @@ Here is a diagram of the stack and tools used:
 
 In the following section I explain why I chose those specific tools instead of others.
 
-## Language and ecosystem: TS
+## Language and ecosystem: TypeScript
 
-![TypeScript Logo](/docs/img/ts.png)
-
-<img src="/docs/img/ts.png" width="48">
+<img src="/docs/img/ts.png" alt="TypeScript Logo" width="100">
 
 JS/TS over other languages for isomorphic code, easy SSR, and programming in only one language. TS vs JS Vs Flow.
 
