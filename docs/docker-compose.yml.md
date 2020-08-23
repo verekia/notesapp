@@ -36,4 +36,4 @@ volumes:
 
 <!-- nocomment -->
 
-`host.docker.internal:3000` is how a Docker container can access the `localhost:3000` of the host machine.
+`host.docker.internal:3000` is how a Docker container can access `localhost:3000` on the host machine.
