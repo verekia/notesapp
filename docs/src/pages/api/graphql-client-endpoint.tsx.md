@@ -2,6 +2,7 @@
 
 ```tsx
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
+
 import apiCall from '../../lib/server/api-call'
 import { getTokenCookie } from '../../lib/server/auth-cookies'
 
@@ -26,4 +27,4 @@ export default async (req: Req, res: Res) => {
 
 This endpoint is only used to transform client requests (which have their
 JWT token in an HttpOnly cookie) into requests with Authorization Bearer tokens.
-It's basically forwarding the request to the Hasura API.
+It's basically forwarding the request to the Hasura endpoint.
