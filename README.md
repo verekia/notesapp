@@ -1,6 +1,6 @@
 # NotesApp
 
-NotesApp is a project to showcase and document my current favorite stack. It is kind of the full-stack equivalent to TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal complete website to serve as a reference and boilerplate for me when starting a new project.
+NotesApp is a project to showcase and document my current favorite stack. It is kind of the full-stack equivalent of TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal complete website to serve as a reference and boilerplate for me when starting a new project.
 
 The app itself is very simple. There is a landing page to sign up and log in, an about page, you can write basic notes for yourself, and single notes can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
 
@@ -8,7 +8,9 @@ Every file of the project is mirrored into a documentation in the `docs` folder.
 
 Here is a diagram of the stack being used:
 
+<br>
 ![Diagram](/docs/img/stack.png)
+<br>
 
 In the following section I explain why I chose those specific tools instead of others.
 
