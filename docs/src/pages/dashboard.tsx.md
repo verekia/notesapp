@@ -94,4 +94,4 @@ export default DashboardPage
 
 The dashboard should only be accessible to logged-in users, so we redirect unauthenticated ones with a custom hook, `useRedirectOut`.
 
-We use `getStaticProps` to pass some options to the page. Here, the kind of header to use is defined and will be checked in `app.tsx`.
+We use `getStaticProps` to pass some options to the page. Here, the kind of header to use is defined and will be checked in `_app.tsx`.
