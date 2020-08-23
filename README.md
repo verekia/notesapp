@@ -18,7 +18,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 ## Language and ecosystem: TS
 
-![TypeScript Logo](/docs/img/ts.png)
+![TypeScript Logo](/docs/img/ts.png | width=100)
 
 JS/TS over other languages for isomorphic code, easy SSR, and programming in only one language. TS vs JS Vs Flow.
 
