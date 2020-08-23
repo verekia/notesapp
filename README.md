@@ -8,9 +8,11 @@ Every file of the project is mirrored into a documentation in the `docs` folder.
 
 Here is a diagram of the stack being used:
 
-<br>
+<br />
+
 ![Diagram](/docs/img/stack.png)
-<br>
+
+<br />
 
 In the following section I explain why I chose those specific tools instead of others.
 
