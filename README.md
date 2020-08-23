@@ -20,7 +20,9 @@ In the following section I explain why I chose those specific tools instead of o
 
 ## Language and ecosystem: TypeScript
 
-<img src="/docs/img/ts.png" alt="TypeScript Logo" width="100" align="center">
+<p align="center">
+<img src="/docs/img/ts.png" alt="TypeScript Logo" width="100">
+</p>
 
 I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
