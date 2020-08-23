@@ -1,4 +1,4 @@
-# 🗒️ NotesApp
+<h1 align="center">🗒️ NotesApp</h1>
 
 NotesApp is a project to showcase and document my current favorite stack. It is kind of the full-stack equivalent of TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal website with a full-featured architecture to serve as a reference and boilerplate for me when starting a new project.
 
