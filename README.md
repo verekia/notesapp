@@ -106,11 +106,15 @@ Most operations will be done directly via Hasura's CRUDs, but for specific custo
 
 Prisma vs TypeORM, Knex. Sequelize, Bookshelf.
 
-## DatabaseL PostgreSQL
+## Database: PostgreSQL on Heroku
 
-PostgreSQL Logo
+<p align="center">
+  <img src="/docs/img/postgres.png" alt="Prisma Logo" width="100">
+</p>
 
-I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance, a relational database will ensure your data is consistent more than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
+I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
+
+<!--
 
 ## 2 options for server-side data fetching
 
@@ -153,6 +157,8 @@ require('jsonwebtoken').sign({'https://hasura.io/jwt/claims':{'x-hasura-allowed-
 If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
 
 https://github.com/vercel/swr/issues/93#issuecomment-552072277
+
+-->
 
 ## About me
 
