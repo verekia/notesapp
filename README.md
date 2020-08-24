@@ -1,4 +1,8 @@
-<h1 align="center">🗒️ NotesApp</h1>
+<h1 align="center">🛠️ My Favorite Stack</h1>
+
+<p align="center"><strong>Documented Full-Stack Sample Web App Using My Favorite Tools</strong></p>
+
+<br />
 
 ⚠️ Work in progress ⚠️
 
@@ -78,13 +82,23 @@ I use Apollo Server for custom logic that cannot be handled by Hasura's CRUDs. T
 
 I use Vercel's serverless functions to host the Apollo Server.
 
-## Authentication method: Passwordless with Magic
+## Data Access (ORM): Prisma
 
 <p align="center">
-  <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
+  <img src="/docs/img/prisma.png" alt="Prisma Logo" width="80">
 </p>
 
-I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
+Most operations will be done directly via Hasura's CRUDs, but for specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. ...(even though Prisma says it's technically [not an ORM](https://www.prisma.io/docs/understand-prisma/prisma-in-your-stack/is-prisma-an-orm))
+
+Prisma vs TypeORM, Knex. Sequelize, Bookshelf.
+
+## Database: PostgreSQL on Heroku
+
+<p align="center">
+  <img src="/docs/img/postgres.png" alt="Prisma Logo" width="100">
+</p>
+
+I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
 
 ## Sessions: JWT in cookies
 
@@ -96,21 +110,15 @@ I am a fan of passwordless authentication, particularly for bootstrapping projec
 
 The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a [serverless endpoint](/docs/src/pages/api/graphql-client-endpoint.tsx.md#readme) to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies.
 
-## Data Access (ORM): Prisma
+## Authentication method: Passwordless with Magic
 
 <p align="center">
-  <img src="/docs/img/prisma.png" alt="Prisma Logo" width="80">
+  <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
 </p>
 
-Most operations will be done directly via Hasura's CRUDs, but for specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. ...(even though Prisma says it's technically [not an ORM](https://www.prisma.io/docs/understand-prisma/prisma-in-your-stack/is-prisma-an-orm))
+I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
-Prisma vs TypeORM, Knex. Sequelize, Bookshelf.
-
-## DatabaseL PostgreSQL
-
-PostgreSQL Logo
-
-I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance, a relational database will ensure your data is consistent more than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
+<!--
 
 ## 2 options for server-side data fetching
 
@@ -153,6 +161,8 @@ require('jsonwebtoken').sign({'https://hasura.io/jwt/claims':{'x-hasura-allowed-
 If a client-side only API call hook needs variables in the GraphQL query, use `useMemo:
 
 https://github.com/vercel/swr/issues/93#issuecomment-552072277
+
+-->
 
 ## About me
 
