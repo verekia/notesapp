@@ -1,8 +1,6 @@
-<h1 align="center">
-  🛠️ My Favorite Stack
-  <br />
-  Documented Full-Stack Sample Web App Using My Favorite Tools
-</h1>
+<h1 align="center">🛠️ My Favorite Stack 🛠️</h1>
+
+<p align="center"><strong>Documented Full-Stack Sample Web App Using My Favorite Tools</strong></p>
 
 ⚠️ Work in progress ⚠️
 
