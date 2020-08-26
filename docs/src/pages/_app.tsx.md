@@ -1,3 +1,6 @@
+**[src/pages/_app.tsx](/src/pages/_app.tsx)**
+
+```tsx
 import { useEffect } from 'react'
 
 import * as Sentry from '@sentry/node'
@@ -124,3 +127,9 @@ const App = ({ Component, pageProps, err }) => {
 }
 
 export default App
+
+```
+
+<!-- nocomment -->
+
+Partially taken from the [with-sentry](https://github.com/vercel/next.js/blob/canary/examples/with-sentry/pages/_app.js) official example.

@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import useSWR, { ConfigInterface } from 'swr'
 import { useRouter } from 'next/router'
 import { GraphQLClient } from 'graphql-request'
+
 import { GET_ME_QUERY } from './queries'
 
 const client = new GraphQLClient('/api/graphql-client-endpoint')

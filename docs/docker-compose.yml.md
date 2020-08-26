@@ -29,6 +29,8 @@ services:
       HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256","key":"h2SMzj65QEUVknKFNXKup8oFf5wUftY9H8QsNkGRihVF4KMHz3"}'
       CUSTOM_API_ENDPOINT: http://host.docker.internal:3000/api/graphql
       CUSTOM_API_HASURA_SECRET: 3JuBim8NiRhAq4r8KvLmM29MNTKouoLYJ3sEnMCUdCEV4imZuT
+      EVENT_HANDLER_ENDPOINT: http://host.docker.internal:3000/api/events
+      EVENT_HANDLER_HASURA_SECRET: bJ2UjX7c7B3vhmuynubrthA7CvtPxakeentCCRk4366swNYBnT
 volumes:
   db_data:
 
