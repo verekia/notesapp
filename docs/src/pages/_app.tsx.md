@@ -20,11 +20,14 @@ import { useUser, graphqlFetcher } from '../lib/client/hooks'
 import Header from '../components/Header'
 import { REFRESH_TOKEN_MUTATION } from '../lib/client/queries'
 
+console.log(process.env.STAGE)
+
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   const config = getConfig()
   const distDir = `${config.serverRuntimeConfig.rootDir}/.next`
   Sentry.init({
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: process.env.STAGE !== 'dev',
+    environment: process.env.STAGE,
     integrations: [
       new RewriteFrames({
         iteratee: (frame) => {
