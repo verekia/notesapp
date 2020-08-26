@@ -1,8 +1,6 @@
-import logger from 'loglevel'
-
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
 
-logger.enableAll()
+import { info } from '../../lib/server/logger'
 
 export default async (req: Req, res: Res) => {
   if (req.headers['event_handler_hasura_secret'] !== process.env.EVENT_HANDLER_HASURA_SECRET) {
@@ -11,11 +9,9 @@ export default async (req: Req, res: Res) => {
 
   const { event, table } = req.body
 
-  logger.info('sometext')
-
   if (table.name === 'user') {
-    if(event.op === 'INSERT') {
-      logger.info({ type: 'sign-up', email: event.data.new.email })
+    if (event.op === 'INSERT') {
+      info('sign-up', { email: event.data.new.email })
     }
   }
 

@@ -24,7 +24,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
-    "loglevel": "^1.6.8",
+    "logdna": "^3.5.1",
     "magic-sdk": "^2.4.7",
     "ms": "^2.1.2",
     "next": "^9.5.2",
