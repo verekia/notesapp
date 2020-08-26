@@ -11,6 +11,8 @@ export default async (req: Req, res: Res) => {
 
   const { event, table } = req.body
 
+  logger.info('sometext')
+
   if (table.name === 'user') {
     if(event.op === 'INSERT') {
       logger.info({ type: 'sign-up', email: event.data.new.email })
