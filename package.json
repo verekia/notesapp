@@ -13,7 +13,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run docs"
+      "pre-commit": "npm run docs && git status",
+      "pre-push": "! [[ -n $(git status -s) ]]"
     }
   },
   "dependencies": {
