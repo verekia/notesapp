@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-const JWT_SECRET = JSON.parse(process.env.HASURA_GRAPHQL_JWT_SECRET).key
+const JWT_SECRET = process.env.HASURA_GRAPHQL_JWT_KEY
 
 export interface JWTPayload {
   issuer: string
