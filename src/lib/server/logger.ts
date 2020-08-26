@@ -10,9 +10,9 @@ const createMsg = (consoleFn: Function, type: string, payload?: any) => {
     throw Error('Logging Error: The log payload cannot have a type field')
   }
   const str = JSON.stringify({ type, ...(payload ?? {}) })
-  if (process.env.STAGE === 'dev') {
-    consoleFn(str)
-  }
+  // if (process.env.STAGE === 'dev') {
+  consoleFn(str)
+  // }
   return str
 }
 
