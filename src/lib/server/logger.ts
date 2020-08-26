@@ -2,6 +2,7 @@ import LogDNA from 'logdna'
 
 const logger = LogDNA.createLogger(process.env.LOGDNA_KEY, {
   app: 'NotesApp',
+  hostname: process.env.LOGDNA_HOSTNAME,
   env: process.env.STAGE,
 })
 
