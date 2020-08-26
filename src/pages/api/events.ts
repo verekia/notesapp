@@ -1,5 +1,5 @@
+import wait from '@sharyn/util/wait'
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
-import { wait } from '@sharyn/util'
 
 import { info } from '../../lib/server/logger'
 
