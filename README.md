@@ -54,6 +54,8 @@ I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because i
 
 Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
+Combining a hybrid static SPA with SSR and with authentication can be quite complicated. I made a [spreadsheet](https://docs.google.com/spreadsheets/d/1oOTVkRzMXskgMCUC09ZtK6C1QQdjBeA2dTvHhiRCifo/edit?usp=sharing) to help figuring out what to do in those different scenarios.
+
 ## Deployment platform: Vercel
 
 <p align="center">
