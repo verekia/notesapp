@@ -100,6 +100,20 @@ tables:
         id:
           _eq: X-Hasura-User-Id
       check: {}
+  event_triggers:
+  - name: user-events
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      num_retries: 0
+      interval_sec: 10
+      timeout_sec: 60
+    webhook_from_env: EVENT_HANDLER_ENDPOINT
+    headers:
+    - name: EVENT_HANDLER_HASURA_SECRET
+      value_from_env: EVENT_HANDLER_HASURA_SECRET
 remote_schemas:
 - name: Custom-API
   definition:
