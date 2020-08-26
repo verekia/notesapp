@@ -80,9 +80,7 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
   <img src="/docs/img/apollo.png" alt="Apollo Logo" width="100">
 </p>
 
-I use Apollo Server for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user.
-
-I use Vercel's serverless functions to host the Apollo Server.
+I use Apollo Server hosted on a Vercel function for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user. This server handles authentication and setting cookies as well.
 
 ## Data Access (ORM): Prisma
 
@@ -90,9 +88,13 @@ I use Vercel's serverless functions to host the Apollo Server.
   <img src="/docs/img/prisma.png" alt="Prisma Logo" width="80">
 </p>
 
-Most operations will be done directly via Hasura's CRUDs, but for specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. ...(even though Prisma says it's technically [not an ORM](https://www.prisma.io/docs/understand-prisma/prisma-in-your-stack/is-prisma-an-orm))
+Most simple operations will be done directly via Hasura's CRUDs, and Hasura also takes care of database migrations via auto-generated raw SQL. For specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. For this I use [Prisma](https://www.prisma.io), which can introspect the database schema and provide amazing TypeScript types specifically tailored to your data.
 
-Prisma vs TypeORM, Knex. Sequelize, Bookshelf.
+I also really like [Knex](http://knexjs.org/), a simple query builder that can handle migrations too. If you need to modify data during migrations, it will be easier to do with Knex than with Hasura's raw SQL. I might swap out Hasura's migrations entirely in the future, for Knex's, or for Prisma's when it's out of its [experimental](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) state.
+
+I tried [TypeORM](https://typeorm.io/) (the "TypeScript" ORM) multiple times, but the fact that some parts of it (such as migrations) cannot interpret TypeScript and rely on compiling your files into JavaScript causes some complicated hybrid TS/JS configuration. It also requires some tweaks with Babel to get decorators to work, which was not as simple as they make it seem. And the connection system has always been a source of headaches to me, particularly in a serverless environment. In comparison, everything worked immediately as expected with Prisma. It is night and day to me but your mileage may vary.
+
+I am not considering Sequelize or Bookshelf because they do not support TypeScript natively.
 
 ## Database: PostgreSQL on Heroku
 
