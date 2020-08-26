@@ -1,1 +1,0 @@
-Change absolute API_URLs into something based on the request URL so all preview deployments can work.
