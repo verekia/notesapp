@@ -31,7 +31,7 @@ module.exports = withSourceMaps({
       SENTRY_PROJECT &&
       SENTRY_AUTH_TOKEN &&
       VERCEL_GITHUB_COMMIT_SHA &&
-      STAGE !== 'dev'
+      STAGE === 'production'
     ) {
       config.plugins.push(
         new SentryWebpackPlugin({
