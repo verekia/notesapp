@@ -25,6 +25,4 @@ export default async (req: Req, res: Res) => {
 
 <!-- nocomment -->
 
-This endpoint is only used to transform client requests (which have their
-JWT token in an HttpOnly cookie) into requests with Authorization Bearer tokens.
-It's basically forwarding the request to the Hasura endpoint.
+This endpoint is only used to transform client requests (which have their JWT token in an `HttpOnly` cookie) into requests with the `Authorization` header. It's basically forwarding the request to the Hasura endpoint. It's also convenient if you host your API on a different domain than your rendering server to be able to set cookies on the domain of the rendering server. But ideally you would have both under the same domain, and would be able to get rid of this endpoint completely if Hasura implements [reading JWTs from cookies](https://github.com/hasura/graphql-engine/issues/2183).
