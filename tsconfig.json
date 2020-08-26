@@ -13,11 +13,11 @@
     "isolatedModules": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    // "module": "esnext", // auto-filled by Next but does not seem required. Breaks ts-node.
+    "module": "esnext", // auto-filled by Next but does not seem required. Breaks ts-node.
     // See: https://github.com/vercel/next.js/issues/7361
     // Alternatively, split into a 2nd file tsconfig file:
     // https://github.com/typeorm/typeorm/issues/5087#issuecomment-557385885
-    "module": "commonjs",
+    // "module": "commonjs",
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
