@@ -1,3 +1,4 @@
+import wait from '@sharyn/util/wait'
 import { NextApiRequest as Req, NextApiResponse as Res } from 'next'
 
 import { info } from '../../lib/server/logger'
@@ -14,6 +15,9 @@ export default async (req: Req, res: Res) => {
       info('sign-up', { email: event.data.new.email })
     }
   }
+
+  // Keep the function alive long enough to complete the LogDNA call
+  await wait(3000)
 
   res.status(200).end()
 }
