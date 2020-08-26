@@ -2,6 +2,9 @@ src:
   pages:
     api:
       'graphql-client-endpoint.tsx':
+    _app.tsx:
+    _error.tsx:
     about.tsx:
     dashboard.tsx:
 docker-compose.yml:
+next.config.js:

@@ -1,4 +1,7 @@
-const withSourceMaps = require('@zeit/next-source-maps')
+**[next.config.js](/next.config.js)**
+
+```js
+const withSourceMaps = require('@zeit/next-source-maps')()
 
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const {
@@ -28,7 +31,7 @@ module.exports = withSourceMaps({
       SENTRY_PROJECT &&
       SENTRY_AUTH_TOKEN &&
       VERCEL_GITHUB_COMMIT_SHA &&
-      STAGE !== 'dev'
+      // STAGE !== 'dev'
     ) {
       config.plugins.push(
         new SentryWebpackPlugin({
@@ -45,6 +48,11 @@ module.exports = withSourceMaps({
   basePath,
   env: {
     MAGIC_PUBLIC: process.env.MAGIC_PUBLIC,
-    STAGE: process.env.STAGE,
   },
 })
+
+```
+
+<!-- nocomment -->
+
+Taken from the official [with-sentry](https://github.com/vercel/next.js/blob/canary/examples/with-sentry/next.config.js) example.

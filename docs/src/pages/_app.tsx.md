@@ -1,3 +1,6 @@
+**[src/pages/_app.tsx](/src/pages/_app.tsx)**
+
+```tsx
 import { useEffect } from 'react'
 
 import * as Sentry from '@sentry/node'
@@ -17,14 +20,11 @@ import { useUser, graphqlFetcher } from '../lib/client/hooks'
 import Header from '../components/Header'
 import { REFRESH_TOKEN_MUTATION } from '../lib/client/queries'
 
-console.log(process.env.STAGE)
-
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   const config = getConfig()
   const distDir = `${config.serverRuntimeConfig.rootDir}/.next`
   Sentry.init({
-    enabled: process.env.STAGE !== 'dev',
-    environment: process.env.STAGE,
+    enabled: process.env.NODE_ENV === 'production',
     integrations: [
       new RewriteFrames({
         iteratee: (frame) => {
@@ -124,3 +124,9 @@ const App = ({ Component, pageProps, err }) => {
 }
 
 export default App
+
+```
+
+<!-- nocomment -->
+
+Partially taken from the [with-sentry](https://github.com/vercel/next.js/blob/canary/examples/with-sentry/pages/_app.js) official example.
