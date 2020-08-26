@@ -23,7 +23,7 @@ if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   const config = getConfig()
   const distDir = `${config.serverRuntimeConfig.rootDir}/.next`
   Sentry.init({
-    enabled: process.env.STAGE !== 'dev',
+    enabled: process.env.STAGE === 'production',
     environment: process.env.STAGE,
     integrations: [
       new RewriteFrames({
