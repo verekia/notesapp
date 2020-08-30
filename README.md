@@ -1,4 +1,4 @@
-<h1 align="center">🛠️ My Favorite Stack</h1>
+<h1 align="center">🛠️ My Stack</h1>
 
 <p align="center"><strong>Documented Full-Stack Sample Web App Using My Favorite Tools</strong></p>
 
