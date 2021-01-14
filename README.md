@@ -170,4 +170,4 @@ https://github.com/vercel/swr/issues/93#issuecomment-552072277
 
 ## About me
 
-I am Jonathan Verrecchia, aka [@verekia](https://twitter.com/verekia), a French freelance web developer who created JavaScript Stack From Scratch and Initializr, and ex-Yelp developer. I love improving my toolset and helping other developers. I am open to developer relations jobs or remote freelance work. My [resume](https://verekia.com/resume/) is available on my [website](https://verekia.com/).
+I am Jonathan Verrecchia, aka [@verekia](https://twitter.com/verekia), a French freelance web developer who created JavaScript Stack From Scratch and Initializr, and ex-Yelp developer. I love improving my toolset and helping other developers. I am open to developer relations jobs or freelance work. My [resume](https://verekia.com/resume/) is available on my [website](https://verekia.com/).
