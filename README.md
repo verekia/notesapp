@@ -126,7 +126,7 @@ I am a fan of passwordless authentication, particularly for bootstrapping projec
 
 **I am not using Prisma for its ORM anymore**. I use Hasura directly from the Apollo Server via GraphQL queries. But for reference, this is what I think of the ORM landscape:
 
-Most simple operations will be done directly via Hasura's CRUDs, and Hasura also takes care of database migrations via auto-generated raw SQL. For specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. For this I use [Prisma](https://www.prisma.io), which can introspect the database schema and provide amazing TypeScript types specifically tailored to your data.
+For specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. For this I use [Prisma](https://www.prisma.io), which can introspect the database schema and provide amazing TypeScript types specifically tailored to your data.
 
 I also really like [Knex](http://knexjs.org/), a simple query builder that can handle migrations too. If you need to modify data during migrations, it will be easier to do with Knex than with Hasura or Prisma's raw SQL.
 
