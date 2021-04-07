@@ -148,19 +148,13 @@ For data that is not stored on the server, such as client-side-only user prefere
 
 ### Authentication method: Magic
 
-<p align="center">
-  <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
-</p>
+<img src="/docs/img/magic.png" alt="Magic Logo" width="80" align="left" />
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
 Auth0 recently released a [Next.js SDK](https://auth0.com/blog/introducing-the-auth0-next-js-sdk/), which seems fairly straightforward and supports both server-side and client-side auth logic. I plan on giving it a shot soon.
 
 ### UI Library: Material UI
-
-<p align="center">
-  <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100">
-</p>
 
 <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100" align="left" />
 
