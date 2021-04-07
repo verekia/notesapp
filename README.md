@@ -110,6 +110,22 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a [serverless endpoint](/docs/src/pages/api/graphql-client-endpoint.tsx.md#readme) to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies.
 
+## Forms: React Hook Form
+
+<p align="center">
+  <img src="/docs/img/react-hook-form.png.png" alt="React Hook Form Logo" width="80">
+</p>
+
+Coming soon
+
+## User Input Validation: Zod
+
+<p align="center">
+  <img src="/docs/img/zod.png" alt="Zod Logo" width="80">
+</p>
+
+Coming soon
+
 ## Authentication method: Passwordless with Magic
 
 <p align="center">
