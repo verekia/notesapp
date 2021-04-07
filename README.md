@@ -94,7 +94,7 @@ I use Apollo Server hosted on a Vercel function for custom logic that cannot be 
 
 <hr />
 
-## Data
+<h2 align="center">Data</h2>
 
 <h3>Migrations: <ins>Prisma</ins></h3>
 
@@ -120,6 +120,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 <hr />
 
+<h2 align="center">Authentication</h2>
+
 <h3>Authentication method: <ins>Magic</ins></h3>
 
 <img src="/docs/img/magic.png" alt="Magic Logo" width="100" align="left" />
@@ -138,7 +140,7 @@ The JWT authentication mechanism of Hasura requires the JWT to be sent in the `A
 
 <hr />
 
-## Front-End
+<h2 align="center">Front-End</h2>
 
 <h3>UI Library: <ins>Material UI</ins></h3>
 
@@ -172,7 +174,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 <hr>
 
-## Extra
+<h2 align="center">Extra</h2>
 
 ### Data Access (ORMs)
 
