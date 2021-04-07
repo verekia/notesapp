@@ -4,13 +4,14 @@
 
 <br />
 
-⚠️ Work in progress ⚠️
-
 NotesApp is a project to **document my current favorite stack**. It is kind of the full-stack equivalent of TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal website with a full-featured architecture to serve as a reference and boilerplate for me when starting a new project.
 
 The app itself is very simple. There is a landing page to sign up and log in, an about page, you can write basic notes for yourself, and single notes can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
 
-Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments.
+<!--
+Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments. -->
+
+⚠️ Work in progress ⚠️
 
 Here is a diagram of the stack and tools used:
 
@@ -30,6 +31,14 @@ In the following section I explain why I chose those specific tools instead of o
 * [Deployment platform: Vercel](#deployment-platform-vercel)
 * [GraphQL Engine: Hasura on Heroku](#graphql-engine-hasura-on-heroku)
 * [GraphQL Server: Apollo Server on Vercel Serverless](#graphql-server-apollo-server-on-vercel-serverless)
+* [Migrations: Prisma](#migrations-prisma)
+* [Database: PostgreSQL on Heroku](#database-postgresql-on-heroku)
+* [Sessions: JWT in cookies](#sessions-jwt-in-cookies)
+* [Forms: React Hook Form](#forms-react-hook-form)
+* [User Input Validation: Zod](#user-input-validation-zod)
+* [Data fetching: React Query](#data-fetching-react-query)
+* [Client-only state: Redux](#client-only-state-redux)
+* [Authentication method: Magic](#authentication-method-magic)
 
 ## Language and ecosystem: TypeScript
 
@@ -109,6 +118,8 @@ See this section for [more details about ORMs](#data-access-orm-prisma) in gener
 
 I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
 
+[Render](https://render.com/) also provides Postgres databases but has no free tier.
+
 ## Sessions: JWT in cookies
 
 <p align="center">
@@ -155,7 +166,7 @@ For data that is not stored on the server, such as client-side-only user prefere
 
 [MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
 
-## Authentication method: Passwordless with Magic
+## Authentication method: Magic
 
 <p align="center">
   <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
@@ -164,10 +175,6 @@ For data that is not stored on the server, such as client-side-only user prefere
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
 ## Data Access (ORMs)
-
-<p align="center">
-  <img src="/docs/img/prisma-bg.png" alt="Prisma Logo" width="100">
-</p>
 
 **I am not using an ORM anymore**. I use Hasura directly from the Apollo Server via GraphQL queries. But for reference, this is what I think of the ORM landscape:
 
