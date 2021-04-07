@@ -42,7 +42,7 @@ In the following section I explain why I chose those specific tools instead of o
   * [Client-only state](#client-only-state-redux): Redux
   * [Forms](#forms-react-hook-form): React Hook Form
 
-## Core
+<h2 align="center">Core</h2>
 
 <h3>Language and ecosystem: <ins>TypeScript</ins></h3>
 
@@ -72,7 +72,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <hr />
 
-## Back-End
+<h2 align="center">Back-End</h2>
 
 <h3>Deployment platform: <ins>Vercel</ins></h3>
 
@@ -126,7 +126,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
-Auth0 recently released a [Next.js SDK](https://auth0.com/blog/introducing-the-auth0-next-js-sdk/), which seems fairly straightforward and supports both server-side and client-side auth logic. I plan on giving it a shot soon.
+**Note**: Auth0 recently released a [Next.js SDK](https://auth0.com/blog/introducing-the-auth0-next-js-sdk/), which seems fairly straightforward and supports both server-side and client-side auth logic. I plan on giving it a shot soon.
 
 <h3>Sessions: <ins>JWT in cookies</ins></h3>
 
@@ -168,7 +168,7 @@ For data that is not stored on the server, such as client-side-only user prefere
 
 <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100" align="left" />
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
 
 <hr>
 
