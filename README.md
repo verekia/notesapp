@@ -33,10 +33,10 @@ In the following section I explain why I chose those specific tools instead of o
   * [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
   * [Migrations](#migrations-prisma): Prisma
   * [User Input Validation](#user-input-validation-zod): Zod
-* Authentication
+* **Authentication**
   * [Authentication method](#authentication-method-magic): Magic
   * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
-* Front-End
+* **Front-End**
   * [Data fetching](#data-fetching-react-query): React Query
   * [UI Library](#ui-library-material-ui): Material UI
   * [Client-only state](#client-only-state-redux): Redux
@@ -161,6 +161,8 @@ Auth0 recently released a [Next.js SDK](https://auth0.com/blog/introducing-the-a
 <p align="center">
   <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100">
 </p>
+
+<img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100" align="left" />
 
 [Material UI](https://material-ui.com/) is a fantastic battle-tested UI library for React. It provides [Material Design](https://material.io/) components as a starting point but can easily be customized to create specific designs. Some alternatives are [Ant Design](https://ant.design/), [Chakra UI](https://chakra-ui.com/), [Semantic UI](https://react.semantic-ui.com/), or [React Bootstrap](https://react-bootstrap.github.io/), to name a few.
 
