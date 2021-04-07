@@ -11,13 +11,13 @@ The app itself is very simple. There is a landing page to sign up and log in, an
 <!--
 Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments. -->
 
-⚠️ Work in progress ⚠️
-
 Here is a diagram of the stack and tools used:
 
 <br />
 
 ![Diagram](/docs/img/stack.png)
+
+⚠️ **Note**: Not all tools have been integrated to the demo app yet.
 
 <br />
 
