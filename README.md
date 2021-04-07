@@ -166,9 +166,7 @@ For data that is not stored on the server, such as client-side-only user prefere
 
 <h3>Forms: <ins>React Hook Form</ins></h3>
 
-<p align="center">
-  <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100">
-</p>
+<img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100" align="left" />
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
 
