@@ -4,7 +4,7 @@
 
 <br />
 
-NotesApp is a project to **document my current favorite stack**. It is kind of the full-stack equivalent of TodoMVC, but with support for having different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a minimal website with a full-featured architecture to serve as a reference and boilerplate for me when starting a new project.
+This repository **documents my current favorite stack** and implements it through a **full-featured but minimal demo project** called NotesApp. The app has different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a reference and boilerplate for me when starting new projects.
 
 The app itself is very simple. There is a landing page to sign up and log in, an about page, you can write basic notes for yourself, and single notes can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
 
@@ -80,7 +80,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality. For Next projects in particular, it is the platform of choice. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go. Both offer a generous free tier.
 
-### API: [Hasura](https://hasura.io/) on [Heroku](http://heroku.com/)
+<h3>API: <ins>Hasura on Heroku</ins></h3>
 
 <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
