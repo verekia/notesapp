@@ -113,7 +113,7 @@ The JWT authentication mechanism of Hasura requires the JWT to be sent in the `A
 ## Forms: React Hook Form
 
 <p align="center">
-  <img src="/docs/img/react-hook-form.png.png" alt="React Hook Form Logo" width="80">
+  <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="80">
 </p>
 
 Coming soon
@@ -121,7 +121,7 @@ Coming soon
 ## User Input Validation: Zod
 
 <p align="center">
-  <img src="/docs/img/zod.png" alt="Zod Logo" width="80">
+  <img src="/docs/img/zod.svg" alt="Zod Logo" width="80">
 </p>
 
 Coming soon
