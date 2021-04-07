@@ -69,7 +69,7 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 ## GraphQL Engine: Hasura on Heroku
 
 <p align="center">
-  <img src="/docs/img/hasura.svg" alt="Hasura Logo" width="100">
+  <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100">
 </p>
 
 [Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
