@@ -67,7 +67,11 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 Both Vercel and Netlify offer a ridiculously generous free tier.
 
 <details>
-  <summary>Click to show backend details</summary>
+  <summary>Click to show backend details
+  
+  <p align="center">
+  <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100">
+</p></summary>
   
 ## GraphQL Engine: Hasura on Heroku
 
