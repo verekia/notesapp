@@ -21,20 +21,26 @@ In the following section I explain why I chose those specific tools instead of o
 
 ## Table of contents
 
-* [Language and ecosystem: TypeScript](#language-and-ecosystem-typescript)
-* [Front-End Library: React](#front-end-library-react)
-* [Server-Side Rendering: Next.js](#server-side-rendering-nextjs)
-* [Deployment platform: Vercel](#deployment-platform-vercel)
-* [GraphQL Engine: Hasura on Heroku](#graphql-engine-hasura-on-heroku)
-* [GraphQL Server: Apollo Server on Vercel Serverless](#graphql-server-apollo-server-on-vercel-serverless)
-* [Migrations: Prisma](#migrations-prisma)
-* [Database: PostgreSQL on Heroku](#database-postgresql-on-heroku)
-* [Sessions: JWT in cookies](#sessions-jwt-in-cookies)
-* [Forms: React Hook Form](#forms-react-hook-form)
-* [User Input Validation: Zod](#user-input-validation-zod)
-* [Data fetching: React Query](#data-fetching-react-query)
-* [Client-only state: Redux](#client-only-state-redux)
-* [Authentication method: Magic](#authentication-method-magic)
+* Core
+  * [Language and ecosystem](#language-and-ecosystem-typescript): TypeScript
+  * [Front-End Library](#front-end-library-react): React
+  * [Server-Side Rendering](#server-side-rendering-nextjs): Next.js
+* Back-End
+  * [Deployment platform](#deployment-platform-vercel): Vercel
+  * [GraphQL Engine](#graphql-engine-hasura-on-heroku): Hasura on Heroku
+  * [GraphQL Server](#graphql-server-apollo-server-on-vercel-serverless): Apollo Server on Vercel Serverless
+* Database
+  * [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
+  * [Migrations](#migrations-prisma): Prisma
+  * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
+* Shared
+  * [User Input Validation](#user-input-validation-zod): Zod
+  * [Authentication method: Magic](#authentication-method-magic)
+* Front-End
+  * [Data fetching](#data-fetching-react-query): React Query
+  * [Client-only state: Redux](#client-only-state-redux)
+  * [UI Library: Material UI](#ui-library-material-ui)
+  * [Forms](#forms-react-hook-form): React Hook Form
 
 ## Language and ecosystem: TypeScript
 
@@ -126,6 +132,36 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a [serverless endpoint](/docs/src/pages/api/graphql-client-endpoint.tsx.md#readme) to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies.
 
+## Client-only state: Redux
+
+<p align="center">
+  <img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100">
+</p>
+
+For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
+
+[MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
+
+## Authentication method: Magic
+
+<p align="center">
+  <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
+</p>
+
+I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
+
+## UI Library: Material UI
+
+<p align="center">
+  <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100">
+</p>
+
+[Material UI](https://material-ui.com/) is a fantastic battle-tested UI library for React. It provides [Material Design](https://material.io/) components as a starting point but can easily be customized to create specific designs. Some alternatives are [Ant Design](https://ant.design/), [Chakra UI](https://chakra-ui.com/), [Semantic UI](https://react.semantic-ui.com/), or [React Bootstrap](https://react-bootstrap.github.io/), to name a few.
+
+About [Tailwind](https://tailwindcss.com/), and utility classes libraries in general, they are great to build custom interfaces fast but you still have to create components yourself, just like with regular CSS. I have nothing against this kind of library (I even [made my own](https://github.com/verekia/zerocss) back in 2016), but in my opinion, a components library with ready-to-use React components to customize is more productive than recreating everything, particularly because all the required JavaScript is already seemlessly integrated, and the types are directly provided by the components.
+
+Even if we use a components library, we still need to lay components on the page and position them with custom CSS (`margin`, `position`, `float` kind of things). This could be done with Tailwind, but I feel like it's a bit overkill to add a whole library just for this. I'd rather just use plain `style` props, or Material UI's own styling solution for that.
+
 ## Forms: React Hook Form
 
 <p align="center">
@@ -151,36 +187,6 @@ Coming soon
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
 
 Coming soon
-
-## Client-only state: Redux
-
-<p align="center">
-  <img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100">
-</p>
-
-For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
-
-[MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
-
-## Authentication method: Magic
-
-<p align="center">
-  <img src="/docs/img/magic.png" alt="Magic Logo" width="80">
-</p>
-
-I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
-
-## UI Library: Material UI
-
-<p align="center">
-  <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100">
-</p>
-
-[Material UI](https://material-ui.com/) is a fantastic battle-tested UI library for React. It provides [Material Design](https://material.io/) components as a starting point but can easily be customized to create specific designs. Some alternatives are [Ant Design](https://ant.design/), [Chakra UI](https://chakra-ui.com/), [Semantic UI](https://react.semantic-ui.com/), or [React Bootstrap](https://react-bootstrap.github.io/).
-
-About [Tailwind](https://tailwindcss.com/), and utility classes libraries in general, they are great to build custom interfaces fast but you still have to create components yourself, just like with regular CSS. I have nothing against this kind of library (I even [made my own](https://github.com/verekia/zerocss) back in 2016), but in my opinion, a components library with ready-to-use React components to customize is more productive than recreating everything, particularly because all the required JavaScript is already seemlessly integrated, and the types are directly provided by the components.
-
-Even if we use a components library, we still need to lay components on the page and position them with custom CSS (`margin`, `position`, `float` kind of things). This could be done with Tailwind, but I feel like it's a bit overkill to add a whole library just for this. I'd rather just use plain `style` props, or Material UI's own styling solution for that.
 
 ## Data Access (ORMs)
 
