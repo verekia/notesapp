@@ -80,7 +80,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality. For Next projects in particular, it is the platform of choice. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go. Both offer a generous free tier.
 
-<h3>API: <ins>Hasura on Heroku</ins></h3>
+### API: [Hasura](https://hasura.io/) on [Heroku](http://heroku.com/)
 
 <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
