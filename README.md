@@ -52,7 +52,7 @@ I program in JavaScript over other languages, because I value isomorphic code (u
 
 In terms of flavor, I prefer [TypeScipt](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support. I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
 
-### Front-End Library: React
+### Front-End Library: <u>React</u>
 
 <img src="/docs/img/react.png" alt="React Logo" width="100" align="left" />
 
