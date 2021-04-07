@@ -4,9 +4,9 @@
 
 <br />
 
-This repository **documents my current favorite stack** and implements it through a **full-featured but minimal demo project** called NotesApp. The app has different pages, a database, CRUDs, server-side rendering, and authentication. It's basically a reference and boilerplate for me when starting new projects.
+This repository **documents my current favorite stack** and implements it through a **full-featured but minimal demo project** called NotesApp. It's basically a reference and boilerplate for me to use when starting new projects.
 
-The app itself is very simple. There is a landing page to sign up and log in, an about page, you can write basic notes for yourself, and single notes can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
+The app has different pages, a database, CRUDs, server-side rendering, and authentication. In terms of features, you can write basic private notes, and a note can also be accessible by unauthenticated users if they have its URL (kind of like "unlisted" videos on YouTube).
 
 <!--
 Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments. -->
