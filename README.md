@@ -22,6 +22,9 @@ Here is a diagram of the stack and tools used:
 
 In the following section I explain why I chose those specific tools instead of others.
 
+## Table of contents
+* <img src="/docs/img/ts.png" alt="TypeScript Logo" width="20"> [Language and ecosystem: TypeScript](#language-and-ecosystem-typescript)
+
 ## Language and ecosystem: TypeScript
 
 <p align="center">
