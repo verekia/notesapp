@@ -50,9 +50,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
-In terms of flavor, I prefer [TypeScipt](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support.
-
-I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
+In terms of flavor, I prefer [TypeScipt](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support. I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
 
 ### Front-End Library: React
 
@@ -60,15 +58,15 @@ I would recommend [Python](https://www.python.org/) to someone learning the fund
 
 I am very satisfied with using [React](https://reactjs.org/) as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities.
 
-I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though.
-
-[Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
+I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though. [Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
 ### Server-Side Rendering: Next.js
 
 <img src="/docs/img/next-bg.png" alt="Next.js Logo" width="150" align="left" />
 
-Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
+Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time.
+
+If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
 Combining a hybrid static SPA with SSR and with authentication can be quite complicated. I made a [spreadsheet](https://docs.google.com/spreadsheets/d/1oOTVkRzMXskgMCUC09ZtK6C1QQdjBeA2dTvHhiRCifo/edit?usp=sharing) to help figuring out what to do in those different scenarios.
 
@@ -170,7 +168,7 @@ Coming soon
 
 <img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100" align="left" />
 
-For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
+For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community.
 
 [MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
 
