@@ -129,7 +129,7 @@ Coming soon
 ## Data fetching: React Query
 
 <p align="center">
-  <img src="/docs/img/react-query.png" alt="Redux Logo" width="100">
+  <img src="/docs/img/react-query.svg" alt="React Query Logo" width="100">
 </p>
 
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
