@@ -24,7 +24,10 @@ In the following section I explain why I chose those specific tools instead of o
 
 ## Table of contents
 
-<table><tr><td valign="center"><img src="/docs/img/ts.png" alt="TypeScript Logo" width="18"></td><td>Language and ecosystem: TypeScript</td></tr></table>
+<table>
+<tr><td valign="center"><img src="/docs/img/ts.png" alt="TypeScript Logo" width="30"></td><td>Language and ecosystem: TypeScript</td></tr>
+<tr><td valign="center"><img src="/docs/img/ts.png" alt="TypeScript Logo" width="30"></td><td>Language and ecosystem: TypeScript</td></tr>
+</table>
 
 ## Language and ecosystem: TypeScript
 
