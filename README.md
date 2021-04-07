@@ -77,7 +77,7 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 ## GraphQL Server: Apollo Server on Vercel Serverless
 
 <p align="center">
-  <img src="/docs/img/apollo.png" alt="Apollo Logo" width="100">
+  <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100">
 </p>
 
 I use Apollo Server hosted on a Vercel function for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. The Apollo Server reads and writes data from the database through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
