@@ -62,7 +62,7 @@ I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because i
 
 <h3>Server-Side Rendering: <ins>Next.js</ins></h3>
 
-<img src="/docs/img/next-bg.png" alt="Next.js Logo" width="150" align="left" />
+<img src="/docs/img/next-bg.png" alt="Next.js Logo" width="100" align="left" />
 
 Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time.
 
@@ -76,7 +76,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <h3>Deployment platform: <ins>Vercel</ins></h3>
 
-<img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="150" align="left" />
+<img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="100" align="left" />
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality. For Next projects in particular, it is the platform of choice. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go. Both offer a generous free tier.
 
@@ -114,9 +114,7 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 <h3>User Input Validation: <ins>Zod</ins></h3>
 
-<p align="center">
-  <img src="/docs/img/zod.svg" alt="Zod Logo" width="100">
-</p>
+<img src="/docs/img/zod.svg" alt="Zod Logo" width="100" align="left" />
 
 Coming soon
 
@@ -124,7 +122,7 @@ Coming soon
 
 <h3>Authentication method: <ins>Magic</ins></h3>
 
-<img src="/docs/img/magic.png" alt="Magic Logo" width="80" align="left" />
+<img src="/docs/img/magic.png" alt="Magic Logo" width="100" align="left" />
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
