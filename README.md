@@ -44,7 +44,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 ## Core
 
-### Language and ecosystem: TypeScript
+<h3>Language and ecosystem: <ins>TypeScript</ins></h3>
 
 <img src="/docs/img/ts.png" alt="TypeScript Logo" width="100" align="left" />
 
@@ -60,7 +60,7 @@ I am very satisfied with using [React](https://reactjs.org/) as my front-end lib
 
 I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though. [Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
-### Server-Side Rendering: Next.js
+<h3>Server-Side Rendering: <ins>Next.js</ins></h3>
 
 <img src="/docs/img/next-bg.png" alt="Next.js Logo" width="150" align="left" />
 
@@ -74,7 +74,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 ## Back-End
 
-### Deployment platform: Vercel
+<h3>Deployment platform: <ins>Vercel</ins></h3>
 
 <img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="150" align="left" />
 
@@ -82,7 +82,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 Both Vercel and Netlify offer a ridiculously generous free tier.
 
-### GraphQL Engine: Hasura on Heroku
+<h3>GraphQL Engine: <ins>Hasura on Heroku</ins></h3>
 
 <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
