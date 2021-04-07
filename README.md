@@ -37,8 +37,8 @@ In the following section I explain why I chose those specific tools instead of o
   * [Authentication method](#authentication-method-magic): Magic
   * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
 * **Front-End**
-  * [Data fetching](#data-fetching-react-query): React Query
   * [UI Library](#ui-library-material-ui): Material UI
+  * [Data fetching](#data-fetching-react-query): React Query
   * [Client-only state](#client-only-state-redux): Redux
   * [Forms](#forms-react-hook-form): React Hook Form
 
@@ -46,9 +46,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 ### Language and ecosystem: TypeScript
 
-<p align="center">
-  <img src="/docs/img/ts.png" alt="TypeScript Logo" width="100">
-</p>
+<img src="/docs/img/ts.png" alt="TypeScript Logo" width="100" align="left" />
 
 I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
@@ -58,9 +56,7 @@ I would recommend [Python](https://www.python.org/) to someone learning the fund
 
 ### Front-End Library: React
 
-<p align="center">
-  <img src="/docs/img/react.png" alt="React Logo" width="100">
-</p>
+<img src="/docs/img/react.png" alt="React Logo" width="100" align="left" />
 
 I am very satisfied with using [React](https://reactjs.org/) as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities.
 
@@ -70,21 +66,19 @@ I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because i
 
 ### Server-Side Rendering: Next.js
 
-<p align="center">
-  <img src="/docs/img/next-bg.png" alt="Next.js Logo" width="150">
-</p>
+<img src="/docs/img/next-bg.png" alt="Next.js Logo" width="150" align="left" />
 
 Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time. If you want to expose pages that are user-generated or dynamic in general (dynamic SSR), you cannot create those pages at build-time, you need a server to render them on the fly. That's where [Next.js](https://nextjs.org/) steps in. Next might not have all the plugins Gatsby has, but it can do both static SSR and dynamic SSR, which makes it a better (and only) choice for this kind of larger project. Just like other Vercel products, it is very elegantly conceived and is a delight to use.
 
 Combining a hybrid static SPA with SSR and with authentication can be quite complicated. I made a [spreadsheet](https://docs.google.com/spreadsheets/d/1oOTVkRzMXskgMCUC09ZtK6C1QQdjBeA2dTvHhiRCifo/edit?usp=sharing) to help figuring out what to do in those different scenarios.
 
+<hr />
+
 ## Back-End
 
 ### Deployment platform: Vercel
 
-<p align="center">
-  <img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="150">
-</p>
+<img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="150" align="left" />
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality and well-crafted. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Next projects in particular, it is the platform of choice. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go.
 
@@ -92,19 +86,19 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 
 ### GraphQL Engine: Hasura on Heroku
 
-<p align="center">
-  <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100">
-</p>
+<img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
 [Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
 
 ### GraphQL Server: Apollo Server on Vercel Serverless
 
-<p align="center">
-  <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100">
-</p>
+<img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
 I use Apollo Server hosted on a Vercel function for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. The Apollo Server reads and writes data from the database through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
+
+<hr />
+
+## Data
 
 ### Migrations: Prisma
 
@@ -122,21 +116,15 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 [Render](https://render.com/) also provides Postgres databases but has no free tier.
 
-### Sessions: JWT in cookies
+### User Input Validation: Zod
 
-<img src="/docs/img/jwt.svg" alt="JWT Logo" width="100" align="left" />
+<p align="center">
+  <img src="/docs/img/zod.svg" alt="Zod Logo" width="100">
+</p>
 
-[JWTs](https://jwt.io/) make it possible to store session data on the client instead of the server (in a Redis for instance), avoiding one database round-trip to validate the identity of the user. They must be stored and transported securely though. The current consensus is to store them in an `HttpOnly`, `Secure`, `SameSite` cookie instead of in `localStorage`.
+Coming soon
 
-The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a [serverless endpoint](/docs/src/pages/api/graphql-client-endpoint.tsx.md#readme) to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies. Alternatively, you could use `localStorage` at your own risk.
-
-### Client-only state: Redux
-
-<img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100" align="left" />
-
-For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
-
-[MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
+<hr />
 
 ### Authentication method: Magic
 
@@ -145,6 +133,18 @@ For data that is not stored on the server, such as client-side-only user prefere
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
 Auth0 recently released a [Next.js SDK](https://auth0.com/blog/introducing-the-auth0-next-js-sdk/), which seems fairly straightforward and supports both server-side and client-side auth logic. I plan on giving it a shot soon.
+
+### Sessions: JWT in cookies
+
+<img src="/docs/img/jwt.svg" alt="JWT Logo" width="100" align="left" />
+
+[JWTs](https://jwt.io/) make it possible to store session data on the client instead of the server (in a Redis for instance), avoiding one database round-trip to validate the identity of the user. They must be stored and transported securely though. The current consensus is to store them in an `HttpOnly`, `Secure`, `SameSite` cookie instead of in `localStorage`.
+
+The JWT authentication mechanism of Hasura requires the JWT to be sent in the `Authorization` header of requests, which is easy to do for server-side requests, but impossible to do for the client since the cookie is inaccessible via JavaScript. This is why I have a [serverless endpoint](/docs/src/pages/api/graphql-client-endpoint.tsx.md#readme) to convert client requests containing a cookie into server requests containing the `Authorization` header. It won't be necessary if Hasura [supports](https://github.com/hasura/graphql-engine/issues/2183) reading JWTs from cookies. Alternatively, you could use `localStorage` at your own risk.
+
+<hr />
+
+## Front-End
 
 ### UI Library: Material UI
 
@@ -156,22 +156,6 @@ About [Tailwind](https://tailwindcss.com/), and utility classes libraries in gen
 
 Even if we use a components library, we still need to lay components on the page and position them with custom CSS (`margin`, `position`, `float` kind of things). This could be done with Tailwind, but I feel like it's a bit overkill to add a whole library just for this. Particularly because it adds complexity to the Server-Side Rendering logic, which is complex already. That's why I'd rather just use plain `style` props, or Material UI's own styling solution for that.
 
-### Forms: React Hook Form
-
-<p align="center">
-  <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100">
-</p>
-
-Coming soon
-
-### User Input Validation: Zod
-
-<p align="center">
-  <img src="/docs/img/zod.svg" alt="Zod Logo" width="100">
-</p>
-
-Coming soon
-
 ### Data fetching: React Query
 
 <p align="center">
@@ -179,6 +163,22 @@ Coming soon
 </p>
 
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
+
+Coming soon
+
+### Client-only state: Redux
+
+<img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100" align="left" />
+
+For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
+
+[MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
+
+### Forms: React Hook Form
+
+<p align="center">
+  <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100">
+</p>
 
 Coming soon
 
