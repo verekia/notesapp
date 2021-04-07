@@ -95,7 +95,7 @@ See this section for [more details about ORMs](#data-access-orm-prisma) in gener
 ## Database: PostgreSQL on Heroku
 
 <p align="center">
-  <img src="/docs/img/postgres.png" alt="Prisma Logo" width="100">
+  <img src="/docs/img/postgres-circle.png" alt="Prisma Logo" width="100">
 </p>
 
 I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
