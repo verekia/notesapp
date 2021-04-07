@@ -116,7 +116,7 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 <img src="/docs/img/zod.svg" alt="Zod Logo" width="100" align="left" />
 
-Coming soon
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
 
 <hr />
 
@@ -156,7 +156,7 @@ Even if we use a components library, we still need to lay components on the page
 
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
 
-Coming soon
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
 
 <h3>Client-only state: <ins>Redux</ins></h3>
 
@@ -172,7 +172,7 @@ For data that is not stored on the server, such as client-side-only user prefere
   <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100">
 </p>
 
-Coming soon
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
 
 <hr>
 
