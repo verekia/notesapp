@@ -152,9 +152,7 @@ Even if we use a components library, we still need to lay components on the page
 
 <h3>Data fetching: <ins>React Query</ins></h3>
 
-<p align="center">
-  <img src="/docs/img/react-query.svg" alt="React Query Logo" width="100">
-</p>
+<img src="/docs/img/react-query.svg" alt="React Query Logo" width="100" align="left" />
 
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
 
