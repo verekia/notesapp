@@ -126,6 +126,24 @@ Coming soon
 
 Coming soon
 
+## Client-only state: Redux
+
+<p align="center">
+  <img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100">
+</p>
+
+I do not feel strongly about any particular state management library. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community, which is good for support.
+
+[MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
+
+## Data fetching: React Query
+
+<p align="center">
+  <img src="/docs/img/react-query" alt="Redux Logo" width="100">
+</p>
+
+Coming soon
+
 ## Authentication method: Passwordless with Magic
 
 <p align="center">
