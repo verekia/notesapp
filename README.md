@@ -116,7 +116,7 @@ I think for common use-cases, relational databases are better-suited than NoSQL.
 
 <img src="/docs/img/zod.svg" alt="Zod Logo" width="100" align="left" />
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
 
 <hr />
 
@@ -154,9 +154,7 @@ Even if we use a components library, we still need to lay components on the page
 
 <img src="/docs/img/react-query.svg" alt="React Query Logo" width="100" align="left" />
 
-[React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/).
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue. Mauris nec ullamcorper odio.
+[React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex.
 
 <h3>Client-only state: <ins>Redux</ins></h3>
 
