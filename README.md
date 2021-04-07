@@ -67,11 +67,15 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 Both Vercel and Netlify offer a ridiculously generous free tier.
 
 <details>
-  <summary>Click to show backend details
+  <summary><b>Show Backend Details</b>
   
   <p align="center">
-  <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100">
-</p></summary>
+    <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100">
+    <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100">
+    <img src="/docs/img/prisma-bg.png" alt="Prisma Logo" width="100">
+    <img src="/docs/img/postgres-circle.png" alt="Prisma Logo" width="100">
+  </p>
+</summary>
   
 ## GraphQL Engine: Hasura on Heroku
 
@@ -80,8 +84,6 @@ Both Vercel and Netlify offer a ridiculously generous free tier.
 </p>
 
 [Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet.
-
-</details>
 
 ## GraphQL Server: Apollo Server on Vercel Serverless
 
@@ -108,6 +110,8 @@ See this section for [more details about ORMs](#data-access-orm-prisma) in gener
 </p>
 
 I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB. I'm just using Postgres because it's the default and only option Heroku offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently.
+
+</details>
 
 ## Sessions: JWT in cookies
 
