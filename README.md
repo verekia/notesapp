@@ -11,15 +11,11 @@ The app itself is very simple. There is a landing page to sign up and log in, an
 <!--
 Every file of the project is mirrored into a documentation in the `docs` folder. For instance, for `src/pages/_app.tsx`, there is a `docs/src/pages/_app.tsx.md` to comment on specific concepts without bloating the source code with comments. -->
 
-Here is a diagram of the stack and tools used:
+Here is a diagram of the stack:
 
 <br />
 
 ![Diagram](/docs/img/stack.png)
-
-⚠️ **Note**: Not all tools have been integrated to the demo app yet.
-
-<br />
 
 In the following section I explain why I chose those specific tools instead of others.
 
@@ -173,6 +169,18 @@ For data that is not stored on the server, such as client-side-only user prefere
 </p>
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
+
+## UI Library: Material UI
+
+<p align="center">
+  <img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100">
+</p>
+
+[Material UI](https://material-ui.com/) is a fantastic battle-tested UI library for React. It provides [Material Design](https://material.io/) components as a starting point but can easily be customized to create specific designs. Some alternatives are [Ant Design](https://ant.design/), [Chakra UI](https://chakra-ui.com/), [Semantic UI](https://react.semantic-ui.com/), or [React Bootstrap](https://react-bootstrap.github.io/).
+
+About [Tailwind](https://tailwindcss.com/), and utility classes libraries in general, they are great to build custom interfaces fast but you still have to create components yourself, just like with regular CSS. I have nothing against this kind of library (I even [made my own](https://github.com/verekia/zerocss) back in 2016), but in my opinion, a components library with ready-to-use React components to customize is more productive than recreating everything, particularly because all the required JavaScript is already seemlessly integrated, and the types are directly provided by the components.
+
+Even if we use a components library, we still need to lay components on the page and position them with custom CSS (`margin`, `position`, `float` kind of things). This could be done with Tailwind, but I feel like it's a bit overkill to add a whole library just for this. I'd rather just use plain `style` props, or Material UI's own styling solution for that.
 
 ## Data Access (ORMs)
 
