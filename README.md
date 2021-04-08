@@ -196,9 +196,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 For specific custom-logic database calls, you might want an ORM or a query builder to help not write SQL by hand. For this I prefer [Prisma](https://www.prisma.io), which can introspect the database schema and provide amazing TypeScript types specifically tailored to your data. I also really like [Knex](http://knexjs.org/), a simple query builder that can handle migrations too. If you need to modify data during migrations, it will be easier to do with Knex than with Hasura or Prisma's raw SQL.
 
-I tried [TypeORM](https://typeorm.io/) (the "TypeScript" ORM) multiple times, but the fact that some parts of it (such as migrations) cannot interpret TypeScript and rely on compiling your files into JavaScript causes some complicated hybrid TS/JS configuration. It also requires some tweaks with Babel to get decorators to work, which was not as simple as they make it seem. And the connection system has always been a source of headaches to me, particularly in a serverless environment. In comparison, everything worked immediately as expected with Prisma. It is night and day to me but your mileage may vary.
-
-I am not considering Sequelize or Bookshelf because they do not support TypeScript natively.
+I tried [TypeORM](https://typeorm.io/) (the "TypeScript" ORM) multiple times, but the fact that some parts of it (such as migrations) cannot interpret TypeScript and rely on compiling your files into JavaScript causes some complicated hybrid TS/JS configuration. It also requires some tweaks with Babel to get decorators to work, which was not as simple as they make it seem. And the connection system has always been a source of headaches to me, particularly in a serverless environment. In comparison, everything worked immediately as expected with Prisma. It is night and day to me but your mileage may vary. I am not considering [Sequelize](https://sequelize.org/) or [Bookshelf](https://bookshelfjs.org/) because they do not support TypeScript.
 
 <!--
 
