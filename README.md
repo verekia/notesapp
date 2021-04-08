@@ -40,8 +40,11 @@ In the following section I explain why I chose those specific tools instead of o
   * [Data Fetching](#data-fetching-react-query): React Query
   * [Client-Only State](#client-only-state-redux): Redux
   * [Forms](#forms-react-hook-form): React Hook Form
+
+<!--
 * **Misc**
   * [User Input Validation](#user-input-validation-zod): Zod
+-->
 
 <h2 align="center">Core</h2>
 
@@ -243,6 +246,8 @@ If a client-side only API call hook needs variables in the GraphQL query, use `u
 https://github.com/vercel/swr/issues/93#issuecomment-552072277
 
 -->
+
+<hr />
 
 <h2 align="center">About me</h2>
 
