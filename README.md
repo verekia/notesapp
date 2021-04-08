@@ -54,7 +54,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
-In terms of flavor, I prefer [TypeScript](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than Flow, and it has a much bigger community and support. I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
+In terms of flavor, I prefer [TypeScript](https://www.typescriptlang.org/) over vanilla ES6, because static typing catches a _lot_ of bugs before they happen. I find TypeScript more reliable than [Flow](https://flow.org/), and it has a much bigger community and support. I would recommend [Python](https://www.python.org/) to someone learning the fundamentals of programming though.
 
 <h3>Front-End Library: <ins>React</ins></h3>
 
@@ -62,7 +62,7 @@ In terms of flavor, I prefer [TypeScript](https://www.typescriptlang.org/) over 
 
 I am very satisfied with using [React](https://reactjs.org/) as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities. The learning curve is a bit steep but you can't go wrong with React.
 
-I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though. [Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
+I know [Vue](https://vuejs.org/) is great, but using it would involve replacing a significant portion of my stack. I would recommend giving it a shot to people who are getting started with front-end development, or need a more lightweight solution than React. [Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
 <h3>Front-End Server: <ins>Next.js</ins> on <ins>Vercel</ins></h3>
 
