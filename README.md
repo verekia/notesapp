@@ -88,10 +88,10 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 <div>
 <img src="/docs/img/heroku.png" alt="Heroku Logo" width="100" align="left" />
 
-[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. I am not considering [AWS](https://aws.amazon.com/elasticbeanstalk/) because I'd rather not have panic attacks when opening the AWS console. [Google Cloud Platform](https://cloud.google.com/appengine) has become way too complex and meta to my taste over the years too. And I have to admit that I never tried [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/) or other smaller alternatives.
+[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. They are way simpler to use than[AWS](https://aws.amazon.com/elasticbeanstalk/), [Google Cloud Platform](https://cloud.google.com/appengine) and [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/).
 </div>
 
-<h3>Custom-Logic GraphQL API: <ins>Apollo on Vercel</ins></h3>
+<h3>Custom-Logic GraphQL API: <ins>Apollo</ins> on <ins>Vercel</ins></h3>
 
 <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
