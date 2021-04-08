@@ -26,18 +26,18 @@ In the following section I explain why I chose those specific tools instead of o
   * [Front-End Library](#front-end-library-react): React
   * [Front-End Server](#front-end-server-nextjs-on-vercel): Next.js on Vercel
 * **Back-End**
-  * [CRUDs GraphQL API](#cruds-graphql-api-hasura-on-heroku): Hasura on Heroku
+  * [CRUD GraphQL API](#crud-graphql-api-hasura-on-heroku): Hasura on Heroku
   * [Custom-Logic GraphQL API](#custom-logic-graphql-api-apollo-on-vercel): Apollo on Vercel
 * **Data**
   * [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
   * [Migrations](#migrations-prisma): Prisma
 * **Authentication**
   * [Authentication Provider](#authentication-provider-magic): Magic
-  * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
+  * [Sessions](#sessions-jwt-in-cookies): JWT in Cookies
 * **Front-End**
   * [UI Library](#ui-library-material-ui): Material UI
-  * [Data fetching](#data-fetching-react-query): React Query
-  * [Client-only state](#client-only-state-redux): Redux
+  * [Data Fetching](#data-fetching-react-query): React Query
+  * [Client-Only State](#client-only-state-redux): Redux
   * [Forms](#forms-react-hook-form): React Hook Form
 * **Misc**
   * [User Input Validation](#user-input-validation-zod): Zod
