@@ -88,14 +88,14 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 <div>
 <img src="/docs/img/heroku.png" alt="Heroku Logo" width="100" align="left" />
 
-[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. I am not considering AWS because I'd rather not have panic attacks when opening the AWS console. Google Cloud Platform has become way too complex and meta to my taste over the years too. And I have to admit that I never tried Microsoft Azure or other smaller alternatives.
+[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. I am not considering [AWS](https://aws.amazon.com/elasticbeanstalk/) because I'd rather not have panic attacks when opening the AWS console. [Google Cloud Platform](https://cloud.google.com/appengine) has become way too complex and meta to my taste over the years too. And I have to admit that I never tried [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/) or other smaller alternatives.
 </div>
 
-<h3>GraphQL Server: <ins>Apollo Server on Vercel Serverless</ins></h3>
+<h3>Custom-Logic GraphQL API: <ins>Apollo on Vercel</ins></h3>
 
 <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
-I use Apollo Server hosted on a Vercel function for custom logic that cannot be handled by Hasura's CRUDs. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. The Apollo Server reads and writes data from the database through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
+I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. The Apollo Server reads and writes data from the database through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
 
 <hr />
 
