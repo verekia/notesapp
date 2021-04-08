@@ -24,15 +24,13 @@ In the following section I explain why I chose those specific tools instead of o
 * **Core**
   * [Language](#language-typescript): TypeScript
   * [Front-End Library](#front-end-library-react): React
-  * [Server-Side Rendering](#server-side-rendering-nextjs): Next.js
+  * [Front-End Server](#front-end-server-nextjs-on-vercel): Next.js on Vercel
 * **Back-End**
-  * [Deployment platform](#deployment-platform-vercel): Vercel
-  * [GraphQL Engine](#graphql-engine-hasura-on-heroku): Hasura on Heroku
-  * [GraphQL Server](#graphql-server-apollo-server-on-vercel-serverless): Apollo Server on Vercel Serverless
+  * [CRUDs GraphQL API](#cruds-graphql-api-hasura-on-heroku): Hasura on Heroku
+  * [Custom-Logic GraphQL API](#custom-logic-graphql-api-apollo-on-vercel): Apollo on Vercel
 * **Data**
   * [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
   * [Migrations](#migrations-prisma): Prisma
-  * [User Input Validation](#user-input-validation-zod): Zod
 * **Authentication**
   * [Authentication Provider](#authentication-provider-magic): Magic
   * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
@@ -41,6 +39,8 @@ In the following section I explain why I chose those specific tools instead of o
   * [Data fetching](#data-fetching-react-query): React Query
   * [Client-only state](#client-only-state-redux): Redux
   * [Forms](#forms-react-hook-form): React Hook Form
+* **Misc**
+  * [User Input Validation](#user-input-validation-zod): Zod
 
 <h2 align="center">Core</h2>
 
@@ -60,7 +60,7 @@ I am very satisfied with using [React](https://reactjs.org/) as my front-end lib
 
 I know [Vue](https://vuejs.org/) is great, but I haven't tried it yet, because it would involve replacing a significant portion of my stack if I were to replace React by it. I would recommend giving it a shot to people who are just getting started with front-end development, or need a lightweight solution though. [Angular](https://angular.io/) might work for some people, but overall it has a very low developer satisfaction according to the [State of JS 2019](https://2019.stateofjs.com/front-end-frameworks/) (38%, versus 89% for React and 87% for Vue), so I don't think I am missing out much.
 
-<h3>Server-Side Rendering: <ins>Next.js</ins></h3>
+<h3>Front-End Server: <ins>Next.js</ins> on <ins>Vercel</ins></h3>
 
 <img src="/docs/img/next-bg.png" alt="Next.js Logo" width="100" align="left" />
 
@@ -70,15 +70,13 @@ If you want to expose pages that are user-generated or dynamic in general (dynam
 
 Combining a hybrid static SPA with SSR and with authentication can be quite complicated. I made a [spreadsheet](https://docs.google.com/spreadsheets/d/1oOTVkRzMXskgMCUC09ZtK6C1QQdjBeA2dTvHhiRCifo/edit?usp=sharing) to help figuring out what to do in those different scenarios.
 
-<hr />
-
-<h2 align="center">Back-End</h2>
-
-<h3>Deployment platform: <ins>Vercel</ins></h3>
-
 <img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="100" align="left" />
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality. For Next projects in particular, it is the platform of choice. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go. Both offer a generous free tier.
+
+<hr />
+
+<h2 align="center">Back-End</h2>
 
 <h3>API: <ins>Hasura on Heroku</ins></h3>
 
