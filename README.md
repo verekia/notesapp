@@ -34,7 +34,7 @@ In the following section I explain why I chose those specific tools instead of o
   * [Migrations](#migrations-prisma): Prisma
   * [User Input Validation](#user-input-validation-zod): Zod
 * **Authentication**
-  * [Authentication method](#authentication-method-magic): Magic
+  * [Authentication Provider](#authentication-provider-magic): Magic
   * [Sessions](#sessions-jwt-in-cookies): JWT in cookies
 * **Front-End**
   * [UI Library](#ui-library-material-ui): Material UI
@@ -120,7 +120,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 <h2 align="center">Authentication</h2>
 
-<h3>Authentication method: <ins>Magic</ins></h3>
+<h3>Authentication provider: <ins>Magic</ins></h3>
 
 <img src="/docs/img/magic.png" alt="Magic Logo" width="100" align="left" />
 
