@@ -95,7 +95,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
-I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The Hasura server calls the Apollo server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. It reads and writes data through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
+I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The Hasura server calls the Apollo server via schema stitching. This Apollo server handles authentication and setting cookies as well. It reads and writes data through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located close to each other.
 
 <hr />
 
