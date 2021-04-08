@@ -161,14 +161,15 @@ For data that is not stored on the server, such as client-side-only user prefere
 
 [MobX](https://mobx.js.org/) is the second most popular choice, but I'd rather not use classes to define my state, and I find the observable pattern less clear than Redux. [Zustand](https://zustand.surge.sh/) looks like a great replacement of Redux, but is still quite new. [Recoil](https://recoiljs.org/) is Facebook's new take at managing state with atoms instead of a global object, and I really like that approach, but it's still under development and is probably not a very safe choice at the moment. [Jotai](https://github.com/pmndrs/jotai) is a lightweight alternative to Recoil, and while still very new, this is the library that I am the most interested in at the moment.
 
+<!--
 <h3>Forms: <ins>React Hook Form</ins></h3>
 
 <img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100" align="left" />
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
-
+-->
 <hr>
-
+<!--
 <h2 align="center">Misc</h2>
 
 <h3>User Input Validation: <ins>Zod</ins></h3>
@@ -178,6 +179,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
 
 <hr>
+-->
 
 <h2 align="center">Extra</h2>
 
