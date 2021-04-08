@@ -82,7 +82,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
-[Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet, but looks more complex and is only maintained by a single developer.
+[Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/). I haven't tried it yet, but it looks more complex and is only maintained by a single developer.
 
 <br />
 <div>
@@ -95,7 +95,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
-I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The only consumer of this server is the Hasura server, which can seemlessly make calls to the Apollo Server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. The Apollo Server reads and writes data from the database through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
+I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The Hasura server calls the Apollo server and return results to the user via schema stitching. This server handles authentication and setting cookies as well. It reads and writes data through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located as close to each other as possible.
 
 <hr />
 
