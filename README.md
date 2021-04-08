@@ -151,7 +151,7 @@ Even if we use a components library, we still need to lay components on the page
 
 <img src="/docs/img/react-query.svg" alt="React Query Logo" width="100" align="left" />
 
-[React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Urql](https://formidable.com/open-source/urql/), [Apollo Client](https://www.apollographql.com/docs/react/). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex.
+[React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Apollo Client](https://www.apollographql.com/docs/react/), and [Urql](https://formidable.com/open-source/urql/) all provide React Hooks to fetch data from an API, and manage it in a memory cache. React Query and SWR bring a whole new semi-real-time paradigm though, by optionally polling and re-fetching automatically when the tab is focused. This feature alone can remove the need for websockets in many cases such as a dynamic dashboard. Apollo Client and Urql shine in a GraphQL environment though, by offering advanced cache management and GraphQL-specific features, but I've never needed those. Here is a [popularity comparison](https://www.npmtrends.com/react-query-vs-swr-vs-@apollo/client-vs-urql). Apollo is the most popular but [does not offer window focus refetching](https://github.com/apollographql/apollo-feature-requests/issues/247).
 
 <h3>Client-only state: <ins>Redux</ins></h3>
 
