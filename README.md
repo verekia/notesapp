@@ -101,13 +101,11 @@ I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted 
 
 <h2 align="center">Data</h2>
 
-<h3>Database: <ins>PostgreSQL on Heroku</ins></h3>
+<h3>Database: <ins>PostgreSQL</ins> on <ins>Heroku</ins></h3>
 
 <img src="/docs/img/postgres-circle.png" alt="Prisma Logo" width="100" align="left" />
 
-I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of PostgreSQL over MySQL or MariaDB.
-
-I'm just using Postgres because it's the default and only option [Heroku](http://heroku.com/) offers, and I trust Heroku to make the right choice for me. Hasura also only supports Postgres currently. [Render](https://render.com/) also provides Postgres databases but has no free tier.
+I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of [PostgreSQL](https://www.postgresql.org/) over [MySQL](https://www.mysql.com/) or [MariaDB](https://mariadb.org/). Both [Heroku](http://heroku.com/) and [Render](https://render.com/) only support PostgreSQL, but Heroku's has a free tier.
 
 <h3>Migrations: <ins>Prisma</ins></h3>
 
