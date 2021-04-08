@@ -1,4 +1,4 @@
-<h1 align="center">🛠️ My Stack</h1>
+<h1 align="center"><img src="/docs/img/logo.png" alt="My Stack logo" width="100" /><br />My Stack</h1>
 
 <p align="center"><strong>Documented Full-Stack Sample Web App Using My Favorite Tools</strong></p>
 
@@ -22,7 +22,7 @@ In the following section I explain why I chose those specific tools instead of o
 ## Table of contents
 
 * **Core**
-  * [Language and ecosystem](#language-and-ecosystem-typescript): TypeScript
+  * [Language](#language-typescript): TypeScript
   * [Front-End Library](#front-end-library-react): React
   * [Server-Side Rendering](#server-side-rendering-nextjs): Next.js
 * **Back-End**
@@ -44,7 +44,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 <h2 align="center">Core</h2>
 
-<h3>Language and ecosystem: <ins>TypeScript</ins></h3>
+<h3>Language: <ins>TypeScript</ins></h3>
 
 <img src="/docs/img/ts.png" alt="TypeScript Logo" width="100" align="left" />
 
