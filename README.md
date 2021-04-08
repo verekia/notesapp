@@ -26,6 +26,7 @@ In the following section I explain why I chose those specific tools instead of o
   * [Front-End Library](#front-end-library-react): React
   * [Front-End Server](#front-end-server-nextjs-on-vercel): Next.js on Vercel
 * **Back-End**
+  * [API Type](#api-type-graphql): GraphQL
   * [CRUD GraphQL API](#crud-graphql-api-hasura-on-heroku): Hasura on Heroku
   * [Custom-Logic GraphQL API](#custom-logic-graphql-api-apollo-on-vercel): Apollo on Vercel
 * **Data**
@@ -77,6 +78,12 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 <hr />
 
 <h2 align="center">Back-End</h2>
+
+<h3>API Type: <ins>GraphQL</ins></h3>
+
+<img src="/docs/img/graphql.svg" alt="GraphQL Logo" width="100" align="left" />
+
+Compared to REST or RPC, I like that [GraphQL](https://graphql.org/) adds a layer of typechecking at the API-level, lets clients request multiple resources in one query, and gives them the flexibility to request only what they want without having to implement variations on the API-side. It is particularly satisfying to use with Hasura, which automatically exposes a full-featured GraphQL API from your PosgreSQL database without having to write any back-end code.
 
 <h3>CRUD GraphQL API: <ins>Hasura</ins> on <ins>Heroku</ins></h3>
 
