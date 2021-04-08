@@ -88,7 +88,7 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 <div>
 <img src="/docs/img/heroku.png" alt="Heroku Logo" width="100" align="left" />
 
-[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. They are way simpler to use than[AWS](https://aws.amazon.com/elasticbeanstalk/), [Google Cloud Platform](https://cloud.google.com/appengine) and [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/).
+[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. [AWS](https://aws.amazon.com/elasticbeanstalk/), [Google Cloud Platform](https://cloud.google.com/appengine) and [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/) are powerful but too complex for my taste.
 </div>
 
 <h3>Custom-Logic GraphQL API: <ins>Apollo</ins> on <ins>Vercel</ins></h3>
