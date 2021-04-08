@@ -19,7 +19,7 @@ Here is a diagram of the stack:
 
 In the following section I explain why I chose those specific tools instead of others.
 
-## Table of contents
+## Table of Contents
 
 * **Core**
   * [Language](#language-typescript): TypeScript
@@ -83,6 +83,10 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 <img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
 [Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/) which I haven't tried yet, but looks more complex and is only maintained by a single developer.
+
+<img src="/docs/img/heroku.png" alt="Heroku Logo" width="100" align="left" />
+
+[Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. I am not considering AWS because I'd rather not have panic attacks when opening the AWS console. Google Cloud Platform has also become way too complex and meta to my taste over the years. And I have to admit that I never tried Microsoft Azure or other smaller alternatives.
 
 <h3>GraphQL Server: <ins>Apollo Server on Vercel Serverless</ins></h3>
 
