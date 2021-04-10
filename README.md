@@ -15,31 +15,31 @@ Here is a diagram of the stack:
 
 <br />
 
-![Diagram](/docs/img/stack.png)
+![Diagram](https://verekia.com/_components/images/my-stack/stack.png)
 
 In the following section I explain why I chose those specific tools instead of others.
 
 ## Table of Contents
 
-* **Core**
-  * [Language](#language-typescript): TypeScript
-  * [Front-End Library](#front-end-library-react): React
-  * [Front-End Server](#front-end-server-nextjs-on-vercel): Next.js on Vercel
-* **Back-End**
-  * [API Type](#api-type-graphql): GraphQL
-  * [CRUD GraphQL API](#crud-graphql-api-hasura-on-heroku): Hasura on Heroku
-  * [Custom-Logic GraphQL API](#custom-logic-graphql-api-apollo-on-vercel): Apollo on Vercel
-* **Data**
-  * [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
-  * [Migrations](#migrations-prisma): Prisma
-* **Authentication**
-  * [Authentication Provider](#authentication-provider-magic): Magic
-  * [Sessions](#sessions-jwt-in-cookies): JWT in Cookies
-* **Front-End**
-  * [UI Library](#ui-library-material-ui): Material UI
-  * [Data Fetching](#data-fetching-react-query): React Query
-  * [Client-Only State](#client-only-state-redux): Redux
-  * [Forms](#forms-react-hook-form): React Hook Form
+- **Core**
+  - [Language](#language-typescript): TypeScript
+  - [Front-End Library](#front-end-library-react): React
+  - [Front-End Server](#front-end-server-nextjs-on-vercel): Next.js on Vercel
+- **Back-End**
+  - [API Type](#api-type-graphql): GraphQL
+  - [CRUD GraphQL API](#crud-graphql-api-hasura-on-heroku): Hasura on Heroku
+  - [Custom-Logic GraphQL API](#custom-logic-graphql-api-apollo-on-vercel): Apollo on Vercel
+- **Data**
+  - [Database](#database-postgresql-on-heroku): PostgreSQL on Heroku
+  - [Migrations](#migrations-prisma): Prisma
+- **Authentication**
+  - [Authentication Provider](#authentication-provider-magic): Magic
+  - [Sessions](#sessions-jwt-in-cookies): JWT in Cookies
+- **Front-End**
+  - [UI Library](#ui-library-material-ui): Material UI
+  - [Data Fetching](#data-fetching-react-query): React Query
+  - [Client-Only State](#client-only-state-redux): Redux
+  - [Forms](#forms-react-hook-form): React Hook Form
 
 <!--
 * **Misc**
@@ -50,7 +50,7 @@ In the following section I explain why I chose those specific tools instead of o
 
 <h3>Language: <ins>TypeScript</ins></h3>
 
-<img src="/docs/img/ts.png" alt="TypeScript Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/ts.png" alt="TypeScript Logo" width="100" align="left" />
 
 I program in JavaScript over other languages, because I value isomorphic code (using the same code on the client and the server), being able to implement server-side rendering more easily, and programming in only one language in general. Considering that JavaScript is pretty much mandatory for client-side code, there is not much of a choice to make here.
 
@@ -58,7 +58,7 @@ In terms of flavor, I prefer [TypeScript](https://www.typescriptlang.org/) over 
 
 <h3>Front-End Library: <ins>React</ins></h3>
 
-<img src="/docs/img/react.png" alt="React Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/react.png" alt="React Logo" width="100" align="left" />
 
 I am very satisfied with using [React](https://reactjs.org/) as my front-end library. Its one-way data flow is very intuitive, the ecosystem is rich, server-side rendering is on point, and it is very widely adopted which means there is a lot of support available, as well as work opportunities. The learning curve is a bit steep but you can't go wrong with React.
 
@@ -66,7 +66,7 @@ I know [Vue](https://vuejs.org/) is great, but using it would involve replacing 
 
 <h3>Front-End Server: <ins>Next.js</ins> on <ins>Vercel</ins></h3>
 
-<img src="/docs/img/next-bg.png" alt="Next.js Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/next-bg.png" alt="Next.js Logo" width="100" align="left" />
 
 Server-Side Rendering (SSR) might be a hard requirement if your website needs to be accessible to programs. Those can be bots from Google for SEO, Facebook for its Open Graph, or Twitter for Cards for instance. If the only pages that need SSR are static pages, such as a landing page, an about page, or articles ("static SSR") you can use [Gatsby](https://www.gatsbyjs.com/), which has a rich plugins ecosystem, particularly for CMSes, and render all the pages at build-time.
 
@@ -74,7 +74,7 @@ If you want to expose pages that are user-generated or dynamic in general (dynam
 
 Combining a hybrid static SPA with SSR and with authentication can be quite complicated. I made a [spreadsheet](https://docs.google.com/spreadsheets/d/1oOTVkRzMXskgMCUC09ZtK6C1QQdjBeA2dTvHhiRCifo/edit?usp=sharing) to help figuring out what to do in those different scenarios.
 
-<img src="/docs/img/vercel-bg.png" alt="Vercel Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/vercel-bg.png" alt="Vercel Logo" width="100" align="left" />
 
 [Vercel](https://vercel.com/) are the creators of Next and [other great projects](https://github.com/vercel) and a deployment platform for [Jamstack](https://jamstack.org/) apps and serverless functions. Everything from them is honestly top-notch quality. For Next projects in particular, it is the platform of choice. As a deployment platform, the Github integration makes deploying websites a breeze, and their dashboard is stellar. For Jamstack projects, [Netlify](https://www.netlify.com/) is also a good similar alternative. For serverless functions, Vercel supports JavaScript, TypeScript, Go, Python, and Ruby, whereas Netlify only supports JavaScript and Go. Both offer a generous free tier.
 
@@ -84,26 +84,27 @@ Combining a hybrid static SPA with SSR and with authentication can be quite comp
 
 <h3>API Type: <ins>GraphQL</ins></h3>
 
-<img src="/docs/img/graphql.svg" alt="GraphQL Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/graphql.svg" alt="GraphQL Logo" width="100" align="left" />
 
 Compared to REST or RPC, I like that [GraphQL](https://graphql.org/) adds a layer of typechecking at the API-level, lets clients request multiple resources in one query, and gives them the flexibility to request only what they want without having to implement variations on the API-side. It is particularly satisfying to use with Hasura, which automatically exposes a full-featured GraphQL API from your PosgreSQL database without having to write any back-end code.
 
 <h3>CRUD GraphQL API: <ins>Hasura</ins> on <ins>Heroku</ins></h3>
 
-<img src="/docs/img/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/hasura-bg.png" alt="Hasura Logo" width="100" align="left" />
 
 [Hasura](https://hasura.io/) combines an ORM for CRUD operations via GraphQL on a PostgreSQL database, a DB GUI, DB migrations, roles and permissions, and acts as the single entrypoint for all your API calls, with the ability to call remote GraphQL services under the hood. Its competitor is [PostGraphile](https://www.graphile.org/postgraphile/). I haven't tried it yet, but it looks more complex and is only maintained by a single developer.
 
 <br />
 <div>
-<img src="/docs/img/heroku.png" alt="Heroku Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/heroku.png" alt="Heroku Logo" width="100" align="left" />
 
 [Heroku](http://heroku.com/) has been an excellent PaaS provider for over 10 years. The simplicity of deployments to staging and production via pipelines following the [12-factor](https://12factor.net/) principles ensures smooth releases. The platform has been pretty stagnant over the years though, which is why [Render](https://render.com/) was created. Render is great but doesn't offer a free tier like Heroku does. [AWS](https://aws.amazon.com/elasticbeanstalk/), [Google Cloud Platform](https://cloud.google.com/appengine) and [Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/) are powerful but too complex for my taste compared to Heroku or Render.
+
 </div>
 
 <h3>Custom-Logic GraphQL API: <ins>Apollo</ins> on <ins>Vercel</ins></h3>
 
-<img src="/docs/img/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/apollo-bg.png" alt="Apollo Logo" width="100" align="left" />
 
 I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted on a [Vercel Function](https://vercel.com/docs/serverless-functions/introduction) for custom logic that cannot be handled by Hasura's CRUD. The Hasura server calls the Apollo server via schema stitching. This Apollo server handles authentication and setting cookies as well. It reads and writes data through the Hasura endpoint, so it is both a GraphQL server and client. Since the Hasura server is the only element the Apollo server interacts with, they should be geographically located close to each other.
 
@@ -113,13 +114,13 @@ I use [Apollo Server](https://www.apollographql.com/docs/apollo-server/) hosted 
 
 <h3>Database: <ins>PostgreSQL</ins> on <ins>Heroku</ins></h3>
 
-<img src="/docs/img/postgres-circle.png" alt="Prisma Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/postgres-circle.png" alt="Prisma Logo" width="100" align="left" />
 
 I think for common use-cases, relational databases are better-suited than NoSQL. Unless you have specific needs, such as very high performance or schema flexibility, a relational database will ensure your data is more consistent than NoSQL databases. Now regarding what system to use, to be honest I am not well-versed enough in databases to argue in favor of [PostgreSQL](https://www.postgresql.org/) over [MySQL](https://www.mysql.com/) or [MariaDB](https://mariadb.org/). Both [Heroku](http://heroku.com/) and [Render](https://render.com/) only support PostgreSQL, but Heroku's has a free tier.
 
 <h3>Migrations: <ins>Prisma</ins></h3>
 
-<img src="/docs/img/prisma-bg.png" alt="Prisma Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/prisma-bg.png" alt="Prisma Logo" width="100" align="left" />
 
 Migrations can be generated by Hasura's UI console as you click around to create tables and columns, but I prefer a more robust and cleaner way to decribe my database schema directly with code. That's why I use [Prisma](https://www.prisma.io/) and its declarative schema, only to take care of migrations. Note that in this architecture, I am not using any [ORM](#data-access-orms), only Hasura's API.
 
@@ -129,7 +130,7 @@ Migrations can be generated by Hasura's UI console as you click around to create
 
 <h3>Authentication provider: <ins>Magic</ins></h3>
 
-<img src="/docs/img/magic.png" alt="Magic Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/magic.png" alt="Magic Logo" width="100" align="left" />
 
 I am a fan of passwordless authentication, particularly for bootstrapping projects to production quickly and getting users to sign up with no friction. [Magic](https://magic.link/) is very easy to use, it just opens a popup to tell the user to click on a link in the email that has been sent, and returns a token to confirm the authentication. It has a free tier but it's too expensive at scale. It is also a very recent project, so it could be unstable or disappear. I would use [Auth0](https://auth0.com/) to do the same thing, but they require the user to use the same browser to request the email and validate the email, which will fail for many users, particularly on mobile with email apps using a webview different than the user's regular browser. That's a big no-no to me. I also had bad experiences with Auth0 every time I tried using it, because I find it very complex. An alternative is to implement magic links yourself, which is not very complicated, or using social logins.
 
@@ -137,7 +138,7 @@ I am a fan of passwordless authentication, particularly for bootstrapping projec
 
 <h3>Sessions: <ins>JWT in cookies</ins></h3>
 
-<img src="/docs/img/jwt.svg" alt="JWT Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/jwt.svg" alt="JWT Logo" width="100" align="left" />
 
 [JWTs](https://jwt.io/) make it possible to store session data on the client instead of the server (in a Redis for instance), avoiding one database round-trip to validate the identity of the user. They must be stored and transported securely though. The current consensus is to store them in an `HttpOnly`, `Secure`, `SameSite` cookie instead of in `localStorage`.
 
@@ -149,7 +150,7 @@ The JWT authentication mechanism of Hasura requires the JWT to be sent in the `A
 
 <h3>UI Library: <ins>Material UI</ins></h3>
 
-<img src="/docs/img/material-ui.png" alt="Material UI Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/material-ui.png" alt="Material UI Logo" width="100" align="left" />
 
 [Material UI](https://material-ui.com/) is a fantastic battle-tested UI library for React. It provides [Material Design](https://material.io/) components as a starting point but can easily be customized to create specific designs. Some alternatives are [Ant Design](https://ant.design/), [Chakra UI](https://chakra-ui.com/), [Semantic UI](https://react.semantic-ui.com/), or [React Bootstrap](https://react-bootstrap.github.io/), to name a few.
 
@@ -159,13 +160,13 @@ Even if we use a components library, we still need to lay components on the page
 
 <h3>Data fetching: <ins>React Query</ins></h3>
 
-<img src="/docs/img/react-query.svg" alt="React Query Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/react-query.svg" alt="React Query Logo" width="100" align="left" />
 
 [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Apollo Client](https://www.apollographql.com/docs/react/), and [Urql](https://formidable.com/open-source/urql/) all provide React Hooks to fetch data from an API, and manage it in a memory cache. React Query and SWR bring a whole new semi-real-time paradigm, by optionally polling and re-fetching automatically when the tab is focused. This feature alone can remove the need for websockets in many cases such as a dynamic dashboard. Apollo Client and Urql shine in a GraphQL environment, by offering advanced cache management and GraphQL-specific features, but I've never needed those. Here is a [popularity comparison](https://www.npmtrends.com/react-query-vs-swr-vs-@apollo/client-vs-urql). Apollo is the most popular but [does not offer window focus refetching](https://github.com/apollographql/apollo-feature-requests/issues/247). In my opinion React Query has an edge on SWR by offering the mutation hook.
 
 <h3>Client-only state: <ins>Redux</ins></h3>
 
-<img src="/docs/img/redux-bg.png" alt="Redux Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/redux-bg.png" alt="Redux Logo" width="100" align="left" />
 
 For data that is not stored on the server, such as client-side-only user preferences (like language or dark mode for instance), I use a state management library. I do not feel strongly about any particular library though. The landscape is pretty wild, with new libraries coming out regularly. The clear default choice is still [Redux](https://redux.js.org/), which can be used in conjunction with [Redux Toolkit](https://redux-toolkit.js.org/) to reduce boilerplate, and [Immer](https://immerjs.github.io/immer/), to make immutability easier to manage. It also has a massive community.
 
@@ -174,7 +175,7 @@ For data that is not stored on the server, such as client-side-only user prefere
 <!--
 <h3>Forms: <ins>React Hook Form</ins></h3>
 
-<img src="/docs/img/react-hook-form.png" alt="React Hook Form Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/react-hook-form.png" alt="React Hook Form Logo" width="100" align="left" />
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
 -->
@@ -184,7 +185,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis a
 
 <h3>User Input Validation: <ins>Zod</ins></h3>
 
-<img src="/docs/img/zod.svg" alt="Zod Logo" width="100" align="left" />
+<img src="https://verekia.com/_components/images/my-stack/zod.svg" alt="Zod Logo" width="100" align="left" />
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut felis ac urna condimentum consectetur. Sed vitae massa hendrerit, consequat nibh non, aliquet nisi. Nunc sollicitudin facilisis urna ac vestibulum. Sed a arcu posuere, lobortis ipsum vel, varius arcu. Donec purus purus, vehicula vel arcu egestas, volutpat ullamcorper enim. Duis non elit ex. Aenean vestibulum ullamcorper diam at blandit. Nam odio leo, vulputate ac rutrum vel, bibendum id augue.
 
