@@ -1,4 +1,4 @@
-<h1 align="center"><img src="/docs/img/logo.png" alt="My Stack logo" width="100" /><br />My Stack</h1>
+<h1 align="center"><img src="https://verekia.com/_components/images/my-stack/logo.png" alt="My Stack logo" width="100" /><br />My Stack</h1>
 
 <p align="center"><strong>Documented Full-Stack Sample Web App Using My Favorite Tools</strong></p>
 
